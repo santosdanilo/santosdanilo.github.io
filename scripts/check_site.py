@@ -1,6 +1,7 @@
 """Validate the generated portfolio without third-party dependencies."""
 
 import json
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -76,4 +77,12 @@ for path, page in pages.items():
             assert unquote(url.fragment) in pages[target].ids, f"Missing fragment in {path.relative_to(root)}: {ref}"
         count += 1
 ET.parse(root / "sitemap.xml")
+modules = 0
+for script in (root / "assets/js").rglob("*.js"):
+    for reference in re.findall(r'''(?:from\s*|import\s*\()\s*['"](\.[^'"]+)['"]''', script.read_text()):
+        target = (script.parent / reference).resolve()
+        assert target.is_relative_to(root) and target.is_file(), f"Missing local module in {script.relative_to(root)}: {reference}"
+        modules += 1
+assert (root / "assets/js/vendor/three-LICENSE.txt").is_file(), "Missing Three.js license"
 print(f"Validated {len(pages)} HTML pages, {count} local references, metadata, language routes, JSON-LD and sitemap.")
+print(f"Validated {modules} local JavaScript module imports and the vendored Three.js license.")

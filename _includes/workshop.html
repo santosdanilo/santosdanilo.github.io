@@ -1,0 +1,26 @@
+<section class="container build-section agent-workshop" id="workshop"
+  aria-labelledby="workshop-title" aria-describedby="workshop-description"
+  data-stages="{{ t.scene_stages | jsonify | escape }}"
+  data-play="{{ t.scene_play }}" data-pause="{{ t.scene_pause }}">
+  <div class="build-copy">
+    <p class="eyebrow">{{ t.scene_label }}</p>
+    <h2 id="workshop-title">{{ t.scene_title }}</h2>
+    <p>{{ t.scene_caption }}</p>
+    <p id="workshop-description" class="visually-hidden">{{ t.scene_description }}</p>
+    <span class="build-status"><span class="status-dot" aria-hidden="true"></span><span data-scene-status>{{ t.scene_status }}</span></span>
+  </div>
+  <div class="workshop-visual">
+    <div class="workshop-controls" hidden>
+      <button type="button" class="scene-toggle" data-scene-toggle data-paused="false" aria-label="{{ t.scene_pause }}" title="{{ t.scene_pause }}">
+        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>
+      </button>
+      <button type="button" data-scene-replay aria-label="{{ t.scene_replay }}" title="{{ t.scene_replay }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg>
+      </button>
+    </div>
+    <div class="webgl-stage" aria-hidden="true"></div>
+    {% include agent-scene.html %}
+    <div class="workshop-progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  </div>
+</section>

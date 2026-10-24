@@ -43,19 +43,43 @@
     window.addEventListener("hashchange", syncLanguageAnchor);
   }
 
-  const scene = document.querySelector(".agent-scene");
-  if (scene && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          scene.classList.add("scene-visible");
-          observer.disconnect();
-        }
+  const tiltPreference = matchMedia(
+    "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+  );
+  document.querySelectorAll("[data-tilt]").forEach((element) => {
+    const surface = element.querySelector("[data-tilt-surface]") || element;
+    let frame = null;
+    const reset = () => {
+      if (frame !== null) cancelAnimationFrame(frame);
+      frame = null;
+      surface.style.removeProperty("--tilt-x");
+      surface.style.removeProperty("--tilt-y");
+    };
+    element.addEventListener(
+      "pointermove",
+      (event) => {
+        if (!tiltPreference.matches || event.pointerType === "touch") return;
+        if (frame !== null) cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          const bounds = element.getBoundingClientRect();
+          const x = Math.max(
+            -0.5,
+            Math.min(0.5, (event.clientX - bounds.left) / bounds.width - 0.5),
+          );
+          const y = Math.max(
+            -0.5,
+            Math.min(0.5, (event.clientY - bounds.top) / bounds.height - 0.5),
+          );
+          surface.style.setProperty("--tilt-x", `${(-y * 8).toFixed(2)}deg`);
+          surface.style.setProperty("--tilt-y", `${(x * 8).toFixed(2)}deg`);
+          frame = null;
+        });
       },
-      { threshold: 0.2 },
+      { passive: true },
     );
-    observer.observe(scene);
-  } else if (scene) {
-    scene.classList.add("scene-visible");
-  }
+    element.addEventListener("pointerleave", reset);
+    element.addEventListener("pointercancel", reset);
+    window.addEventListener("blur", reset);
+    tiltPreference.addEventListener("change", reset);
+  });
 })();

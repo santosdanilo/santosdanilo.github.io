@@ -23,6 +23,11 @@ scene_caption: Thoughtful interfaces. Connected systems. Tested ideas.
 scene_title: Building something that works.
 scene_roles: [BUILD, CONNECT, VERIFY]
 scene_status: From idea to shipped
+scene_stages: [Building the interface, Connecting the services, Checking the result, Ready to ship]
+scene_play: Play animation
+scene_pause: Pause animation
+scene_replay: Replay
+scene_description: Three agents assemble an interface, connect its services, and test the finished application.
 worked: EXPERIENCE IN GOOD COMPANY
 expertise_label: "01 / EXPERTISE"
 expertise_title: The whole product picture.
