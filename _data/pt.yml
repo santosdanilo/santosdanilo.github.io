@@ -1,0 +1,138 @@
+locale: pt-BR
+other_locale: en
+other_url: /
+switch_label: Read in English
+title: Danilo Santos — Engenheiro Full Stack
+description: Engenheiro full stack criando produtos web confiáveis com Angular, React e TypeScript. Desenvolvimento de produtos, modernização, acessibilidade e qualidade.
+skip: Pular para o conteúdo
+menu: Abrir ou fechar navegação
+nav: [Especialidades, Projetos, Experiência, Contato]
+cv: Baixar currículo
+cv_language: PDF · Inglês
+eyebrow: ENGENHEIRO FULL STACK
+hero_start: Boas ideias merecem
+hero_accent: ótima engenharia.
+intro: Sou Danilo. Desenvolvo produtos web com atenção aos detalhes, modernizo sistemas complexos e levo ideias da primeira interface à produção.
+hero_detail: Angular, React e TypeScript. Formação em Ciência da Computação. Foco no produto.
+view_work: Conheça meu trabalho
+contact_action: Vamos conversar
+portrait_alt: Retrato de Danilo Santos
+portrait_caption: A pessoa por trás do código
+scene_label: Uma pequena equipe. Uma missão em comum.
+scene_caption: Interfaces bem pensadas. Sistemas conectados. Ideias testadas.
+scene_title: Construindo algo que funciona.
+scene_roles: [CRIAR, CONECTAR, VALIDAR]
+scene_status: Da ideia à entrega
+worked: EXPERIÊNCIA EM BOA COMPANHIA
+expertise_label: "01 / ESPECIALIDADES"
+expertise_title: Uma visão completa do produto.
+expertise_intro: Profundidade no frontend, perspectiva full stack. Conecto os detalhes que tornam o software útil, confiável e mais fácil de evoluir.
+expertise:
+  - icon: "◈"
+    title: Produtos de ponta a ponta
+    text: Do primeiro protótipo aos fluxos em tempo real, transformo requisitos em aplicações que as pessoas podem usar de verdade.
+    tags: [React, Angular, TypeScript, Supabase]
+  - icon: "↗"
+    title: Modernização com cuidado
+    text: Evolução incremental de sistemas legados, com componentes reutilizáveis e arquitetura preparada para o próximo capítulo.
+    tags: [AngularJS → Angular, Arquitetura, Ionic]
+  - icon: "✓"
+    title: Qualidade desde o início
+    text: Interfaces acessíveis e testes automatizados relevantes para que o produto funcione para mais pessoas e continue funcionando ao crescer.
+    tags: [Jest, Testing Library, Playwright, Acessibilidade]
+  - icon: "⌘"
+    title: Um caminho mais curto até a entrega
+    text: Integração de serviços, automação de entregas e uso consciente de agentes de IA para transformar uma ideia em um produto validado.
+    tags: [AWS Lambda, CI/CD, GitHub Actions, Desenvolvimento com IA]
+work_label: "02 / PROJETOS SELECIONADOS"
+work_title: Problemas reais. Software funcionando.
+work_intro: Alguns capítulos construindo, evoluindo e entregando produtos com equipes dos setores de comercialização de gás, pagamentos e energia.
+contribution: MINHA CONTRIBUIÇÃO
+outcome: O RESULTADO
+work:
+  - company: GasHub
+    category: DESENVOLVIMENTO DE PRODUTO · 2025—ATUAL
+    title: Um mercado conectado em tempo real.
+    text: Uma aplicação de comercialização de gás natural que conecta compradores e vendedores com correspondência em tempo real e notificações instantâneas.
+    contribution: Desenvolvi um protótipo funcional com React, Supabase e agentes de IA, refinei os fluxos de negócio com a equipe e fortaleci o código com testes unitários e de ponta a ponta.
+    outcome: Protótipo funcional entregue em menos de três semanas para validação de mercado.
+    tags: [React, Supabase, Testing Library, Playwright]
+    diagram: market
+  - company: MyTime
+    category: MODERNIZAÇÃO DE LEGADO · 2022—2025
+    title: Uma nova base. Sem interrupções.
+    text: Modernização de um sistema legado de pagamentos e ponto de venda, mantendo as operações do dia a dia.
+    contribution: Migrei módulos de AngularJS e CoffeeScript para Angular e TypeScript, integrei os sistemas antigo e novo e reconstruí módulos centrais do POS com testes automatizados e acessibilidade.
+    outcome: Operação contínua durante a transição, com um sistema mais fácil de manter e o relançamento bem-sucedido do POS.
+    tags: [Angular, TypeScript, Jest, Acessibilidade]
+    diagram: migration
+  - company: GreenAnt
+    category: ENERGIA E MOBILE · 2020—2021
+    title: Dados de energia que viram ação.
+    text: Dados de consumo de energia, monitoramento e pagamento de faturas em experiências web e mobile acessíveis.
+    contribution: Criei componentes Angular reutilizáveis, liderei a migração incremental de AngularJS, desenvolvi um serviço de PDF com AWS Lambda e lancei um aplicativo Ionic.
+    outcome: Uma experiência conectada entre web e mobile, apoiada por pipelines de entrega automatizados.
+    tags: [Angular, Ionic, AWS Lambda, GitLab CI]
+    diagram: energy
+experience_label: "03 / EXPERIÊNCIA"
+experience_title: Em equipe. Para pessoas.
+experience_intro: Uma trajetória em desenvolvimento de produtos, migrações complexas e aplicações orientadas a dados.
+experience:
+  - company: GasHub
+    role: Engenheiro Full Stack
+    dates: Jun 2025 — Atual
+    text: Desenvolvimento de um produto de comercialização de gás natural com fluxos em tempo real. Prototipação rápida, desenvolvimento com IA e uma base de código sustentável e testada.
+    tags: React · Supabase · Playwright
+  - company: MyTime
+    role: Engenheiro de Software Frontend
+    dates: Abr 2022 — Abr 2025
+    text: Modernização de sistemas de pagamentos e POS de AngularJS para Angular. Reconstrução de módulos centrais, integração entre aplicações legadas e modernas e implementação de fluxos acessíveis.
+    tags: Angular · TypeScript · Jest · Testing Library
+  - company: Twenty20 Solutions
+    role: Engenheiro de Software Frontend
+    dates: Jan 2022 — Mar 2022
+    text: Arquitetura de um ambiente desktop no navegador com miniaplicações modulares. Introdução de Jest, GitHub Actions, linting e configuração de ambientes.
+    tags: Angular · Clean Architecture · GitHub Actions
+  - company: GreenAnt
+    role: Engenheiro de Software Frontend
+    dates: Jan 2020 — Dez 2021
+    text: Desenvolvimento de dashboards de energia e aplicativo Ionic, modernização incremental e integrações com AWS Lambda e GitLab CI.
+    tags: Angular · Ionic · AWS · GitLab CI
+earlier_title: Capítulos anteriores
+earlier:
+  - company: Universidade de Brasília
+    role: Desenvolvedor de Software Frontend
+    dates: Ago 2018 — Ago 2020
+    text: Dashboard mobile-first para facilitar a exploração de dados governamentais.
+  - company: Grupo Gera
+    role: Engenheiro de Software Frontend
+    dates: Fev 2019 — Dez 2019
+    text: Análise de consumo de energia para clientes empresariais.
+  - company: Finatec
+    role: Desenvolvedor de Software Frontend
+    dates: Mai 2017 — Jan 2018
+    text: Aplicação Angular para gestão de dados da administração militar.
+about_label: O LADO HUMANO
+about_title: Curioso por natureza. Prático por escolha.
+about_text: Gosto de tornar o complicado mais simples. Minha base é a engenharia de frontend, mas meu trabalho acompanha o produto aonde for preciso — integrações, pipelines de entrega, testes e as conversas que transformam requisitos em software útil.
+education_label: FORMAÇÃO
+degree: Bacharelado em Ciência da Computação
+university: Universidade de Brasília · 2014—2022
+contact_label: "04 / PRÓXIMO CAPÍTULO"
+contact_title: Vamos construir algo que vale a pena.
+contact_text: Tem um produto para desenvolver, um sistema para modernizar ou um desafio de engenharia para resolver? Vamos começar uma conversa.
+email_action: Envie um email
+footer: Feito com propósito. Publicado no GitHub Pages.
+back_top: Voltar ao início
+not_found: Página não encontrada
+not_found_text: Esta página pode ter mudado. Vamos voltar ao portfólio.
+home: Voltar ao início
+diagram_buyer: Comprador
+diagram_seller: Vendedor
+diagram_match: CONEXÃO EM TEMPO REAL
+diagram_legacy: Legado
+diagram_modern: Moderno
+diagram_continuity: OPERAÇÃO CONTÍNUA
+diagram_data: Dados de energia
+diagram_web: Web
+diagram_mobile: Mobile

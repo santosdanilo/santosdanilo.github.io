@@ -1,9 +1,6 @@
 ---
-bg: "coding.jpg"
-layout: page
-title: "Contact"
-crawlertitle: "Danilo Santos contact"
+layout: redirect
+title: Contact Danilo Santos
 permalink: /contact/
-summary: "How to enter in contact with me"
-active: contact
+destination: /#contact
 ---

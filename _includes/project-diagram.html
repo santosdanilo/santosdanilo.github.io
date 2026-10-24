@@ -1,0 +1,7 @@
+<div class="system-diagram" aria-hidden="true">
+{% case project.diagram %}
+{% when 'market' %}<div class="diagram-node">{{ t.diagram_seller }}<span>↗</span></div><div class="diagram-connection"><span>⟷</span><small>{{ t.diagram_match }}</small></div><div class="diagram-node">{{ t.diagram_buyer }}<span>↙</span></div>
+{% when 'migration' %}<div class="diagram-node muted-node">{{ t.diagram_legacy }}<span>JS</span></div><div class="diagram-connection"><span>→</span><small>{{ t.diagram_continuity }}</small></div><div class="diagram-node">{{ t.diagram_modern }}<span>TS</span></div>
+{% when 'energy' %}<div class="energy-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="energy-label">{{ t.diagram_data }} <span>→</span> {{ t.diagram_web }} + {{ t.diagram_mobile }}</div>
+{% endcase %}
+</div>

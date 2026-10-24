@@ -1,9 +1,6 @@
 ---
-bg: "coding.jpg"
-layout: page
-title: "About"
-crawlertitle: "My Carrier and Curriculum"
+layout: redirect
+title: About Danilo Santos
 permalink: /about/
-summary: "About my career"
-active: about
+destination: /#about
 ---
