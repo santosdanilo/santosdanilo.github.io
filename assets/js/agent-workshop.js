@@ -1,4 +1,4 @@
-import { DURATION, stateAt } from "./workshop-state.js";
+import { COMPLETED_TIME, DURATION, stateAt } from "./workshop-state.js";
 
 const workshop = document.querySelector(".agent-workshop");
 if (workshop) startWorkshop(workshop);
@@ -23,7 +23,14 @@ function startWorkshop(root) {
   const parcel = fallback.querySelector(".floating-block");
   const server = fallback.querySelector(".fallback-server");
   const cable = fallback.querySelector(".fallback-cable");
-  let elapsed = reduced.matches ? 12.8 : 0;
+  const coordinator = fallback.querySelector(".coordinator");
+  const humanHead = coordinator.querySelector(".human-head");
+  const humanArm = coordinator.querySelector(".human-arm-right");
+  const idea = fallback.querySelector(".idea-bulb");
+  const tokens = [...fallback.querySelectorAll(".task-tokens i")];
+  const signals = [...fallback.querySelectorAll(".assignment-signals path")];
+  const issue = fallback.querySelector(".review-issue");
+  let elapsed = reduced.matches ? COMPLETED_TIME : 0;
   let paused = reduced.matches;
   let visible = false;
   let renderer = null;
@@ -58,6 +65,26 @@ function startWorkshop(root) {
       }
     }
     if (!renderer) {
+      humanArm.style.rotate = `${state.directing ? -55 + Math.sin(state.t * 3) * 12 : state.success > 0 ? -90 : -8}deg`;
+      humanHead.style.rotate = `${state.success > 0 ? Math.sin(state.t * 4) * 5 : state.directing ? 5 : -2}deg`;
+      idea.style.opacity = String(state.idea);
+      idea.style.scale = String(0.7 + state.idea * 0.3);
+      tokens.forEach((token, index) => {
+        token.style.opacity = String(0.2 + state.assigned[index] * 0.8);
+      });
+      signals.forEach((signal, index) => {
+        const progress =
+          index === 0 && state.redirect >= 0
+            ? state.redirect
+            : state.signals[index];
+        signal.style.opacity =
+          progress >= 0 ? String(Math.sin(progress * Math.PI)) : "0";
+        signal.style.strokeDashoffset = String(
+          (1 - Math.max(0, progress)) * 100,
+        );
+      });
+      issue.style.opacity = String(state.issue);
+      fallback.classList.toggle("has-review-issue", state.issue > 0.1);
       frame.style.opacity = String(0.2 + state.frame * 0.8);
       parts.forEach((part, index) => {
         const p = state.parts[index];
@@ -73,8 +100,8 @@ function startWorkshop(root) {
         bot.querySelector(".arm-left").style.rotate =
           `${action * -20 + state.celebrate * 60}deg`;
       });
-      const carrying = state.t < 4.8;
-      const trip = (state.t % 0.9) / 0.9;
+      const carrying = state.t >= 5 && state.t < 9.7;
+      const trip = ((state.t - 5) % 1) / 1;
       parcel.style.opacity = carrying ? String(Math.sin(trip * Math.PI)) : "0";
       parcel.style.translate = `${trip * 75}px ${-Math.sin(trip * Math.PI) * 38}px`;
       server.style.opacity = String(state.server);
@@ -166,7 +193,7 @@ function startWorkshop(root) {
   });
   reduced.addEventListener("change", () => {
     paused = reduced.matches;
-    if (paused) elapsed = 12.8;
+    if (paused) elapsed = COMPLETED_TIME;
     else loadWebGL();
     render();
     sync();

@@ -18,16 +18,26 @@ view_work: Conheça meu trabalho
 contact_action: Vamos conversar
 portrait_alt: Retrato de Danilo Santos
 portrait_caption: A pessoa por trás do código
-scene_label: Uma pequena equipe. Uma missão em comum.
-scene_caption: Interfaces bem pensadas. Sistemas conectados. Ideias testadas.
-scene_title: Construindo algo que funciona.
+scene_label: Direção humana. Execução com agentes.
+scene_caption: Eu desenvolvo a ideia, oriento os agentes e reviso o que construímos juntos.
+scene_title: Da ideia a um produto funcionando.
+scene_coordinator: DANILO
+scene_idea: IDEIA
 scene_roles: [CRIAR, CONECTAR, VALIDAR]
 scene_status: Da ideia à entrega
-scene_stages: [Construindo a interface, Conectando os serviços, Validando o resultado, Pronto para entregar]
+scene_stages:
+  [
+    Desenvolvendo a ideia,
+    Distribuindo as tarefas,
+    Construindo a interface,
+    Conectando os serviços,
+    Revisando e refinando,
+    Aprovado. Pronto para entregar.,
+  ]
 scene_play: Reproduzir animação
 scene_pause: Pausar animação
 scene_replay: Recomeçar
-scene_description: Três agentes montam uma interface, conectam os serviços e testam a aplicação pronta.
+scene_description: Um coordenador humano inspirado em Danilo apresenta uma ideia, distribui tarefas para três agentes, revisa um problema, orienta a correção e aprova a aplicação pronta.
 worked: EXPERIÊNCIA EM BOA COMPANHIA
 expertise_label: "01 / ESPECIALIDADES"
 expertise_title: Uma visão completa do produto.

@@ -18,16 +18,26 @@ view_work: Explore my work
 contact_action: Let's talk
 portrait_alt: Portrait of Danilo Santos
 portrait_caption: Human behind the code
-scene_label: A small crew. A shared mission.
-scene_caption: Thoughtful interfaces. Connected systems. Tested ideas.
-scene_title: Building something that works.
+scene_label: Human direction. Agent execution.
+scene_caption: I shape the idea, guide the agents, and review what we build together.
+scene_title: From an idea to a working product.
+scene_coordinator: DANILO
+scene_idea: IDEA
 scene_roles: [BUILD, CONNECT, VERIFY]
 scene_status: From idea to shipped
-scene_stages: [Building the interface, Connecting the services, Checking the result, Ready to ship]
+scene_stages:
+  [
+    Shaping the idea,
+    Assigning the work,
+    Building the interface,
+    Connecting the services,
+    Reviewing and refining,
+    Approved. Ready to ship.,
+  ]
 scene_play: Play animation
 scene_pause: Pause animation
 scene_replay: Replay
-scene_description: Three agents assemble an interface, connect its services, and test the finished application.
+scene_description: A human coordinator inspired by Danilo introduces an idea, assigns tasks to three agents, reviews an issue, directs a fix, and approves the finished application.
 worked: EXPERIENCE IN GOOD COMPANY
 expertise_label: "01 / EXPERTISE"
 expertise_title: The whole product picture.

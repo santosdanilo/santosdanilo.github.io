@@ -21,6 +21,6 @@
     </div>
     <div class="webgl-stage" aria-hidden="true"></div>
     {% include agent-scene.html %}
-    <div class="workshop-progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="workshop-progress" aria-hidden="true">{% for stage in t.scene_stages %}<i></i>{% endfor %}</div>
   </div>
 </section>

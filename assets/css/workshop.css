@@ -116,10 +116,11 @@
 .workshop-progress .is-active {
   background: var(--purple);
 }
-.workshop-progress .is-active:nth-child(2) {
+.workshop-progress .is-active:nth-child(3),
+.workshop-progress .is-active:nth-child(4) {
   background: var(--cyan);
 }
-.workshop-progress .is-active:nth-child(n + 3) {
+.workshop-progress .is-active:nth-child(n + 5) {
   background: var(--green);
 }
 .fallback-server {
@@ -169,7 +170,7 @@
   border-radius: 50%;
   filter: blur(2px);
 }
-.workshop-enhanced[data-phase="2"] .assembly::after {
+.workshop-enhanced[data-phase="4"] .assembly::after {
   content: "";
   position: absolute;
   left: 8%;
@@ -178,6 +179,269 @@
   height: 2px;
   background: var(--green);
   box-shadow: 0 0 12px #50fa7b88;
+}
+
+/* The same human-led story remains visible when WebGL cannot be used. */
+.workshop-visual .assembly {
+  left: 41%;
+  top: 21%;
+  width: 42%;
+  max-width: 200px;
+}
+.workshop-visual .bot-builder {
+  left: 36%;
+  top: 65%;
+  scale: 0.76;
+}
+.workshop-visual .bot-connector {
+  left: 81%;
+  top: 42%;
+  scale: 0.76;
+}
+.workshop-visual .bot-reviewer {
+  left: 66%;
+  top: 72%;
+  scale: 0.66;
+}
+.workshop-visual .floating-block {
+  left: 43%;
+  top: 61%;
+  width: 23px;
+  height: 22px;
+}
+.workshop-visual .fallback-server {
+  left: 81%;
+  top: 64%;
+  scale: 0.82;
+}
+.workshop-visual .fallback-cable {
+  left: 68%;
+  top: 63%;
+  width: 16%;
+}
+.workshop-visual .bot-label {
+  font-size: 10px;
+}
+.coordinator {
+  position: absolute;
+  width: 84px;
+  height: 149px;
+  left: 13%;
+  top: 48%;
+  filter: drop-shadow(4px 8px 5px #14182170);
+}
+.human-head {
+  position: absolute;
+  width: 43px;
+  height: 48px;
+  top: 2px;
+  left: 20px;
+  border-radius: 17px 17px 20px 20px;
+  background: linear-gradient(115deg, #ba8667, #8c583f);
+  z-index: 3;
+}
+.human-hair {
+  position: absolute;
+  top: -9px;
+  left: -1px;
+  width: 46px;
+  height: 24px;
+  background: #171923;
+  border-radius: 50% 50% 25% 25%;
+  box-shadow:
+    -3px -3px 0 -1px #242533,
+    4px -4px 0 -2px #171923,
+    0 -7px 0 -3px #242533;
+}
+.human-glasses {
+  position: absolute;
+  top: 17px;
+  left: 2px;
+  display: flex;
+  gap: 2px;
+}
+.human-glasses i {
+  width: 18px;
+  height: 12px;
+  border: 2px solid #262939;
+  border-radius: 4px;
+}
+.human-glasses::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 18px;
+  width: 4px;
+  height: 2px;
+  background: #262939;
+}
+.human-body {
+  position: absolute;
+  top: 50px;
+  left: 14px;
+  width: 55px;
+  height: 55px;
+  border-radius: 12px 12px 6px 6px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 16px,
+      #8b95af45 17px,
+      transparent 18px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      #434e66,
+      #434e66 16px,
+      #6b789344 17px,
+      #434e66 18px
+    );
+  z-index: 2;
+}
+.human-body i {
+  position: absolute;
+  left: 27px;
+  height: 100%;
+  width: 1px;
+  background: #aab0c355;
+}
+.human-arm {
+  position: absolute;
+  top: 53px;
+  width: 13px;
+  height: 49px;
+  border-radius: 7px;
+  background: linear-gradient(#46516b 65%, #a67555 65%);
+  transform-origin: 50% 10%;
+}
+.human-arm-left {
+  left: 4px;
+  transform: rotate(14deg);
+}
+.human-arm-right {
+  right: 3px;
+  z-index: 3;
+}
+.human-legs {
+  display: flex;
+  gap: 9px;
+  position: absolute;
+  top: 100px;
+  left: 18px;
+}
+.human-legs i {
+  width: 19px;
+  height: 38px;
+  background: #29364f;
+  border-radius: 0 0 4px 4px;
+  border-bottom: 9px solid #171c2b;
+}
+.human-label {
+  position: absolute;
+  top: 149px;
+  width: 100%;
+  text-align: center;
+  font: 8px var(--mono);
+  letter-spacing: 0.16em;
+  color: #d7c4f4;
+}
+.idea-board {
+  position: absolute;
+  left: 8%;
+  top: 18%;
+  width: 100px;
+  height: 95px;
+  border: 1px solid #74748e;
+  border-radius: 6px;
+  background: #323749;
+  box-shadow: 4px 5px 0 #202432;
+  transform: rotate(-7deg);
+  padding: 9px;
+}
+.idea-board > span {
+  display: block;
+  font: 7px var(--mono);
+  letter-spacing: 0.15em;
+  color: #d7c4f4;
+}
+.idea-sketch {
+  margin-top: 9px;
+  height: 34px;
+  border: 1px solid #88839d;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.idea-sketch i {
+  width: 14px;
+  height: 13px;
+  border: 1px solid #aaa4b9;
+  border-radius: 2px;
+}
+.task-tokens {
+  display: flex;
+  gap: 7px;
+  margin-top: 8px;
+}
+.task-tokens i {
+  width: 15px;
+  height: 7px;
+  background: var(--purple);
+  border-radius: 2px;
+}
+.task-tokens i:nth-child(2) {
+  background: var(--cyan);
+}
+.task-tokens i:nth-child(3) {
+  background: var(--green);
+}
+.idea-bulb {
+  position: absolute;
+  top: 9%;
+  left: 17%;
+  color: #ffcf86;
+  font-size: 28px;
+  text-shadow: 0 0 15px #ffb86c66;
+}
+.assignment-signals {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.assignment-signals path {
+  fill: none;
+  stroke: var(--purple);
+  stroke-width: 2;
+  stroke-dasharray: 5 5;
+  opacity: 0;
+}
+.assignment-signals path:nth-child(2) {
+  stroke: var(--cyan);
+}
+.assignment-signals path:nth-child(3) {
+  stroke: var(--green);
+}
+.review-issue {
+  position: absolute;
+  left: 73%;
+  top: 42%;
+  color: #282a36;
+  background: #ffb86c;
+  border-radius: 4px;
+  width: 20px;
+  height: 23px;
+  text-align: center;
+  font: bold 17px/23px var(--mono);
+  opacity: 0;
+}
+.has-review-issue .ui-cards i:last-child {
+  background: #ffb86c66;
+  border-color: #ffb86c;
 }
 @media (max-width: 760px) {
   .agent-workshop {
@@ -198,28 +462,60 @@
     height: 310px;
   }
   .workshop-visual .assembly {
-    left: 24%;
-    width: 175px;
+    left: 37%;
+    top: 23%;
+    width: 52%;
+    max-width: 175px;
   }
   .workshop-visual .bot {
-    scale: 0.8;
+    scale: 0.64;
   }
   .workshop-visual .bot-builder {
-    left: 5%;
-    top: 46%;
+    left: 34%;
+    top: 65%;
   }
   .workshop-visual .bot-connector {
-    left: 75%;
-    top: 28%;
+    left: 80%;
+    top: 44%;
   }
   .workshop-visual .bot-reviewer {
-    left: 55%;
-    top: 64%;
+    left: 64%;
+    top: 69%;
+    scale: 0.6;
   }
   .workshop-visual .bot-label {
-    font-size: 8px;
+    display: none;
   }
   .workshop-visual .floating-block {
-    left: 17%;
+    left: 40%;
+  }
+  .coordinator {
+    left: 4%;
+    top: 54%;
+    scale: 0.76;
+  }
+  .idea-board {
+    left: 3%;
+    top: 20%;
+    width: 82px;
+    height: 87px;
+    padding: 7px;
+  }
+  .idea-sketch {
+    height: 29px;
+  }
+  .idea-bulb {
+    left: 32%;
+    top: 10%;
+    font-size: 22px;
+  }
+  .fallback-server {
+    left: 80%;
+    top: 64%;
+    scale: 0.65;
+  }
+  .review-issue {
+    left: 79%;
+    top: 43%;
   }
 }
