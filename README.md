@@ -34,11 +34,11 @@ Open http://127.0.0.1:4000. English is at `/`, Brazilian Portuguese at `/pt/`.
 - `assets/css/critical.scss`: header, hero, and proof-strip styles; the asset build inlines its minified output on the English and Portuguese portfolio pages.
 - `_sass/portfolio/`: design tokens and base styles, navigation, hero, proof, work, approach, fallback illustration, AI direction, career, contact, and motion. Responsive rules live with their component.
 - `assets/js/portfolio.js`: progressive mobile navigation and language-anchor preservation.
-- `scripts/build-assets.mjs`: bundles/minifies browser JavaScript, combines/minifies generated CSS, inlines critical above-the-fold styles, preserves the workshop's lazy WebGL chunk, and strips unbundled copies from `_site`.
+- `scripts/build-assets.mjs`: bundles/minifies browser JavaScript, combines/minifies generated CSS, inlines critical above-the-fold styles, fingerprints deployed assets and rewrites references, preserves the workshop's lazy WebGL chunk, and strips unbundled copies from `_site`.
 - `package.json` / `package-lock.json`: pinned esbuild build tooling; no third-party runtime requests are added.
 - `assets/images/danilo.webp`: original optimized portrait, retained as the source image.
-- `assets/images/danilo-cutout.webp`: full-size portrait cutout source. Responsive compressed WebP variants (`danilo-cutout-480.webp`, `danilo-cutout-640.webp`) serve appropriately sized hero images; no runtime image-processing service is used.
-- `assets/images/portrait-network.svg`: decorative UI/API/data network background, kept separate from the portrait for parallax.
+- `assets/images/danilo-cutout.webp`: full-size portrait cutout source. Responsive compressed WebP variants are emitted with content-hashed filenames; no runtime image-processing service is used.
+- `assets/images/portrait-network.svg`: decorative UI/API/data network layer, emitted with a content-hashed filename as a high-priority HTML image separate from the portrait.
 - `assets/documents/Danilo-Santos-Resume.pdf`: supplied English résumé, shared by both languages.
 
 ### Editing workflow
@@ -67,7 +67,7 @@ node --check assets/js/agent-webgl.js
 node --check assets/js/workshop-state.js
 ```
 
-The link checker validates local assets, page destinations, matching fragment IDs across languages, translated page language, nonempty headings and their hierarchy, structured data, and metadata in the generated output. Jekyll emits compressed Sass; `build:assets` inlines minified critical CSS, combines/minifies the remaining CSS, and bundles/minifies JavaScript before validation and deployment. The full stylesheet is a low-priority preload with a no-JavaScript fallback. Source modules remain readable under `assets/js/`. Also review desktop/mobile layouts, keyboard navigation, no-JavaScript navigation, and reduced-motion behavior after visual changes.
+The link checker validates local assets, page destinations, matching fragment IDs across languages, translated page language, nonempty headings and their hierarchy, structured data, and metadata in the generated output. Jekyll emits compressed Sass; `build:assets` inlines minified critical CSS, combines/minifies the remaining CSS, and fingerprints CSS, JS, and hero images before validation and deployment. The full stylesheet is a low-priority preload with a no-JavaScript fallback. Source modules remain readable under `assets/js/`. Also review desktop/mobile layouts, keyboard navigation, no-JavaScript navigation, and reduced-motion behavior after visual changes.
 
 ## Agent workshop
 
@@ -81,7 +81,7 @@ For browser verification, block the WebGL module or make canvas `getContext('web
 
 ## GitHub Pages
 
-`.github/workflows/pages.yml` installs locked Ruby and Node dependencies, builds the Jekyll site, bundles/minifies CSS and JS, validates the generated output, then builds pull requests and deploys pushes to `master`. Dependencies are recorded in `Gemfile.lock` and `package-lock.json`. GitHub Pages controls its own cache lifetime (the audit reported 10 minutes); this repository cannot set static asset response headers there.
+`.github/workflows/pages.yml` installs locked Ruby and Node dependencies, builds the Jekyll site, bundles/minifies and fingerprints CSS, JS, and hero images, validates the generated output, then builds pull requests and deploys pushes to `master`. Dependencies are recorded in `Gemfile.lock` and `package-lock.json`. Fingerprinted URLs prevent stale asset content from being reused after deploys. GitHub Pages controls its own cache lifetime (the audit reported 10 minutes); fingerprints do not change that TTL, and this repository cannot set static asset response headers there.
 
 In the repository's **Settings → Pages**, select **GitHub Actions** as the publishing source. The workflow deploys `_site` to the existing `santosdanilo.github.io` address. Repository settings and publication are separate from local development; a local build does not publish changes.
 

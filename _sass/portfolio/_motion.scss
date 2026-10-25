@@ -18,7 +18,7 @@
     );
     transition: transform 160ms ease-out;
   }
-  .portrait-stage img {
+  .portrait-foreground {
     transform: translate(var(--tilt-shift-x, 0px), var(--tilt-shift-y, 0px))
       scale(1.025);
     transition: transform 160ms ease-out;

@@ -42,7 +42,7 @@
     rel="preload"
     as="style"
     fetchpriority="low"
-    href="{{ '/assets/css/site.min.css' | relative_url }}"
+    href="{{ '/assets/css/__SITE_CSS__' | relative_url }}"
     onload="
       this.onload = null;
       this.rel = 'stylesheet';
@@ -51,11 +51,11 @@
   <noscript>
     <link
       rel="stylesheet"
-      href="{{ '/assets/css/site.min.css' | relative_url }}"
+      href="{{ '/assets/css/__SITE_CSS__' | relative_url }}"
     />
   </noscript>
   <script
-    src="{{ '/assets/js/portfolio.min.js' | relative_url }}"
+    src="{{ '/assets/js/__PORTFOLIO_JS__' | relative_url }}"
     defer
   ></script>
   <script type="application/ld+json">

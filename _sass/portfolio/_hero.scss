@@ -75,9 +75,12 @@
 .portrait-network {
   position: absolute;
   inset: -5%;
-  background: url("../images/portrait-network.svg") center / cover;
+  width: 110%;
+  height: 110%;
+  max-width: none;
+  object-fit: cover;
 }
-.portrait img {
+.portrait-foreground {
   position: relative;
   object-fit: cover;
   filter: saturate(0.75);

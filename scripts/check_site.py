@@ -1,5 +1,6 @@
 """Validate the generated portfolio without third-party dependencies."""
 
+import hashlib
 import json
 import re
 from html.parser import HTMLParser
@@ -91,6 +92,16 @@ for relative in ("index.html", "pt/index.html"):
     assert "<style>" in html and ".hero" in html, f"Missing critical styles: {relative}"
     assert 'rel="preload"' in html and 'as="style"' in html, f"Missing stylesheet preload: {relative}"
     assert "<noscript>" in html and 'rel="stylesheet"' in html, f"Missing no-script styles: {relative}"
+    for pattern, label in (
+        (r"/assets/css/site-[a-f0-9]{12}\.min\.css", "fingerprinted CSS"),
+        (r"/assets/js/portfolio-[A-Z0-9]{8,12}\.min\.js", "fingerprinted app JS"),
+        (r"danilo-cutout-480-[a-f0-9]{12}\.webp", "fingerprinted 480px portrait"),
+        (r"danilo-cutout-640-[a-f0-9]{12}\.webp", "fingerprinted 640px portrait"),
+        (r"portrait-network-[a-f0-9]{12}\.svg", "fingerprinted LCP image"),
+    ):
+        assert re.search(pattern, html), f"Missing {label}: {relative}"
+    assert 'class="portrait-network"' in html and 'fetchpriority="high"' in html, f"LCP image is not prioritized in HTML: {relative}"
+    assert 'class="portrait-network"' in html and 'loading="eager"' in html, f"LCP image must not be lazy-loaded: {relative}"
 
 # Language switching preserves fragments, including links to individual cases.
 assert pages[root / "index.html"].ids == pages[root / "pt/index.html"].ids, "Translated fragment IDs differ"
@@ -117,22 +128,40 @@ for script in (root / "assets/js").rglob("*.js"):
         assert target.is_relative_to(root) and target.is_file(), f"Missing local module in {script.relative_to(root)}: {reference}"
         modules += 1
 assert (root / "assets/js/vendor/three-LICENSE.txt").is_file(), "Missing Three.js license"
-for asset in (
-    "assets/css/site.min.css",
-    "assets/js/portfolio.min.js",
-    "assets/js/agent-workshop.min.js",
+fingerprinted_assets = (
+    root / "assets/css/site-*.min.css",
+    root / "assets/images/danilo-cutout-480-*.webp",
+    root / "assets/images/danilo-cutout-640-*.webp",
+    root / "assets/images/portrait-network-*.svg",
+)
+for pattern in fingerprinted_assets:
+    matches = list(pattern.parent.glob(pattern.name))
+    assert len(matches) == 1, f"Expected one fingerprinted asset matching {pattern}"
+    asset = matches[0]
+    digest = hashlib.sha256(asset.read_bytes()).hexdigest()[:12]
+    assert digest in asset.name, f"Content hash does not match filename: {asset.relative_to(root)}"
+for pattern in (
+    root / "assets/js/portfolio-*.min.js",
+    root / "assets/js/agent-workshop-*.min.js",
 ):
-    assert (root / asset).is_file(), f"Missing minified production asset: {asset}"
+    matches = list(pattern.parent.glob(pattern.name))
+    assert len(matches) == 1, f"Expected one bundled entry matching {pattern}"
 for source_copy in (
     "assets/css/portfolio.css",
     "assets/css/portfolio.css.map",
     "assets/css/workshop.css",
+    "assets/css/critical.css",
+    "assets/css/site.min.css",
     "assets/js/portfolio.js",
     "assets/js/agent-workshop.js",
     "assets/js/agent-webgl.js",
     "assets/js/workshop-state.js",
     "assets/js/scripts.js",
     "assets/js/vendor/three.module.min.js",
+    "assets/images/danilo-cutout.webp",
+    "assets/images/danilo-cutout-480.webp",
+    "assets/images/danilo-cutout-640.webp",
+    "assets/images/portrait-network.svg",
 ):
     assert not (root / source_copy).exists(), f"Unbundled source included in production output: {source_copy}"
 print(f"Validated {len(pages)} HTML pages, {count} local references, metadata, language routes, JSON-LD and sitemap.")

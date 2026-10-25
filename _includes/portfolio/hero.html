@@ -23,15 +23,27 @@
   </div>
   <figure class="portrait" data-tilt>
     <div class="portrait-stage">
-      <div class="portrait-network" aria-hidden="true"></div>
       <img
-        src="{{ '/assets/images/danilo-cutout-480.webp' | relative_url }}"
-        srcset="{{ '/assets/images/danilo-cutout-480.webp' | relative_url }} 480w, {{ '/assets/images/danilo-cutout-640.webp' | relative_url }} 640w"
+        class="portrait-network"
+        src="{{ '/assets/images/__PORTRAIT_NETWORK__' | relative_url }}"
+        width="640"
+        height="640"
+        alt=""
+        aria-hidden="true"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
+      <img
+        class="portrait-foreground"
+        src="{{ '/assets/images/__PORTRAIT_480__' | relative_url }}"
+        srcset="{{ '/assets/images/__PORTRAIT_480__' | relative_url }} 480w, {{ '/assets/images/__PORTRAIT_640__' | relative_url }} 640w"
         sizes="(max-width: 760px) 192px, (max-width: 1050px) 40vw, 407px"
         width="640"
         height="640"
         alt="{{ t.hero.portrait_alt }}"
-        fetchpriority="high"
+        loading="eager"
+        decoding="async"
       />
     </div>
     <figcaption>{{ t.hero.portrait_caption }}</figcaption>
