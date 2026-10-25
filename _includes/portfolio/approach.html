@@ -1,0 +1,17 @@
+<section class="container section" id="expertise" aria-labelledby="approach-title">
+  <div class="section-heading">
+    <p class="eyebrow">{{ t.approach.label }}</p>
+    <h2 id="approach-title">{{ t.approach.title }}</h2>
+    <p>{{ t.approach.intro }}</p>
+  </div>
+  <ol class="approach-grid">
+    {% for principle in t.approach.items %}
+      <li>
+        <span class="approach-number" aria-hidden="true">0{{ forloop.index }}</span>
+        <h3>{{ principle.title }}</h3>
+        <p>{{ principle.text }}</p>
+      </li>
+    {% endfor %}
+  </ol>
+  {% include workshop.html %}
+</section>

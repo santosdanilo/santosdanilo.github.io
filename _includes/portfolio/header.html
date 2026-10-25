@@ -1,0 +1,22 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ home | relative_url }}">
+      <span class="brand-mark" aria-hidden="true">d<span>.</span></span>
+      <span>danilo<span class="brand-last"> santos</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="{{ t.menu }}" hidden>
+      <span></span><span></span>
+    </button>
+    <nav class="navigation" id="navigation" aria-label="{% if key == 'pt' %}Principal{% else %}Main{% endif %}">
+      {% for item in t.nav %}
+        <a href="{{ home | relative_url }}#{{ item.anchor }}">{{ item.label }}</a>
+      {% endfor %}
+      <a class="language-link" href="{{ t.other_url | relative_url }}" hreflang="{{ t.other_locale }}" lang="{{ t.other_locale }}" title="{{ t.switch_label }}">
+        <span{% if key == 'en' %} class="current-language"{% endif %}>EN</span>
+        <span class="language-divider" aria-hidden="true">/</span>
+        <span{% if key == 'pt' %} class="current-language"{% endif %}>PT</span>
+      </a>
+      <a class="button button-small button-outline" href="{{ p.resume | relative_url }}" download>{{ t.cv }} <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>

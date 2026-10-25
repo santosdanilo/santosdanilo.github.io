@@ -1,0 +1,22 @@
+{% assign project = include.project %}
+<article class="project-card" id="work-{{ project.id }}" aria-labelledby="{{ project.id }}-title">
+  <div class="project-visual project-{{ project.diagram }}" data-tilt aria-hidden="true">
+    <span class="project-company">{{ project.company }}</span>
+    <div class="project-artwork" data-tilt-surface>{% include project-diagram.html %}</div>
+    <span class="visual-footnote" aria-hidden="true">{{ t.work.visual_label }} / 0{{ include.number }}</span>
+  </div>
+  <div class="project-copy">
+    <p class="eyebrow">{{ project.company }} / {{ project.category }}</p>
+    <h3 id="{{ project.id }}-title">{{ project.title }}</h3>
+    <p>{{ project.problem }}</p>
+    <h4>{{ t.work.contribution_label }}</h4>
+    <ul class="project-contributions">
+      {% for contribution in project.contributions %}<li>{{ contribution }}</li>{% endfor %}
+    </ul>
+    <div class="project-outcome">
+      <h4>{{ t.work.outcome_label }}</h4>
+      <p>{{ project.outcome }}</p>
+    </div>
+    <ul class="tags">{% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+  </div>
+</article>

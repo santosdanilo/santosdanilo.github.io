@@ -1,0 +1,138 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 70px;
+  align-items: center;
+  padding-block: 80px 65px;
+}
+.hero .eyebrow {
+  margin-bottom: 24px;
+  font-size: 10px;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 4.3vw, 3.85rem);
+  line-height: 1.08;
+}
+.hero h1 > span {
+  color: var(--purple);
+  display: block;
+}
+.hero-intro {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-top: 26px;
+  max-width: 580px;
+}
+.hero-detail {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 14px;
+  max-width: 510px;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 28px;
+}
+.hero-direction {
+  color: var(--purple);
+  margin-top: 24px;
+  font-size: 12px;
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 22px;
+  font: 11px var(--mono);
+  color: var(--muted);
+}
+.social-links > span {
+  color: #626679;
+}
+.social-links a > span {
+  margin-left: 7px;
+  color: var(--subtle);
+}
+.portrait {
+  border: 1px solid #625676;
+  border-radius: 14px;
+  background: var(--surface);
+  padding: 9px;
+  transform: rotate(2deg);
+  box-shadow: 12px 15px 0 #242631;
+}
+.portrait img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 7px;
+  filter: saturate(0.75);
+  width: 100%;
+}
+.portrait figcaption {
+  padding: 15px 8px 6px;
+  font: 10px/1.6 var(--mono);
+  color: var(--muted);
+  text-align: center;
+}
+@media (max-width: 1050px) {
+  .hero {
+    gap: 40px;
+    padding-top: 65px;
+  }
+  .hero h1 {
+    font-size: 46px;
+  }
+  .hero-intro {
+    font-size: 15px;
+  }
+}
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 48px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 7.5vw, 56px);
+    max-width: 640px;
+  }
+  .hero-copy {
+    max-width: 600px;
+  }
+  .hero-intro {
+    font-size: 16px;
+  }
+  .portrait {
+    width: 210px;
+    margin-inline: auto;
+  }
+  .portrait figcaption {
+    font-size: 9px;
+  }
+}
+@media (max-width: 440px) {
+  .hero .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+  .hero-actions {
+    gap: 20px;
+  }
+  .hero-actions .button {
+    padding-inline: 16px;
+    gap: 14px;
+    font-size: 12px;
+  }
+  .hero-actions .text-link {
+    font-size: 12px;
+  }
+  .hero-intro {
+    font-size: 15px;
+  }
+  .hero-direction {
+    font-size: 11px;
+  }
+}

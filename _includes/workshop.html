@@ -1,10 +1,10 @@
-<section class="container build-section agent-workshop" id="workshop"
+<section class="build-section agent-workshop" id="workshop"
   aria-labelledby="workshop-title" aria-describedby="workshop-description"
   data-stages="{{ t.scene_stages | jsonify | escape }}"
   data-play="{{ t.scene_play }}" data-pause="{{ t.scene_pause }}">
   <div class="build-copy">
     <p class="eyebrow">{{ t.scene_label }}</p>
-    <h2 id="workshop-title">{{ t.scene_title }}</h2>
+    <h3 id="workshop-title">{{ t.scene_title }}</h3>
     <p>{{ t.scene_caption }}</p>
     <p id="workshop-description" class="visually-hidden">{{ t.scene_description }}</p>
     <span class="build-status"><span class="status-dot" aria-hidden="true"></span><span data-scene-status>{{ t.scene_status }}</span></span>

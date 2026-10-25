@@ -1,0 +1,126 @@
+.proof-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-block: 26px 32px;
+}
+.proof-section > .eyebrow {
+  color: var(--subtle);
+  font-size: 10px;
+}
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+}
+.proof-grid > li {
+  padding-inline: 26px;
+  border-left: 1px solid var(--line);
+}
+.proof-grid > li:first-child {
+  padding-left: 0;
+  border: 0;
+}
+.proof-grid > li:last-child {
+  padding-right: 0;
+}
+.proof-result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+}
+.proof-value {
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  color: var(--cyan);
+}
+.proof-grid > li:nth-child(2) .proof-value {
+  color: var(--purple);
+}
+.proof-grid > li:nth-child(3) .proof-value {
+  color: var(--green);
+}
+.proof-title {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.proof-title > span {
+  color: var(--subtle);
+  margin-left: 5px;
+}
+.proof-context {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 290px;
+}
+.proof-result:hover .proof-title {
+  color: var(--cyan);
+}
+.company-strip {
+  padding-block: 26px 0;
+}
+.company-strip .eyebrow {
+  font-size: 9px;
+  color: var(--subtle);
+  margin-bottom: 18px;
+}
+.company-strip > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.company-strip > div > span {
+  font-size: 17px;
+  letter-spacing: -0.035em;
+  font-weight: 550;
+  color: #c3c3cf;
+}
+.company-strip > div > span:last-child {
+  font-size: 14px;
+}
+@media (max-width: 760px) {
+  .proof-grid {
+    grid-template-columns: 1fr;
+    margin-top: 18px;
+  }
+  .proof-grid > li,
+  .proof-grid > li:first-child {
+    padding: 20px 0;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .proof-grid > li:first-child {
+    padding-top: 0;
+  }
+  .proof-grid > li:last-child {
+    border: 0;
+    padding-bottom: 0;
+  }
+  .proof-result {
+    gap: 6px;
+  }
+  .proof-value {
+    font-size: 34px;
+  }
+  .proof-context {
+    max-width: none;
+  }
+  .company-strip > div {
+    justify-content: flex-start;
+    gap: 16px 24px;
+  }
+  .company-strip > div > span {
+    font-size: 14px;
+  }
+  .company-strip > div > span:last-child {
+    font-size: 12px;
+  }
+}

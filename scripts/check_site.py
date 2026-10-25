@@ -20,10 +20,16 @@ class Page(HTMLParser):
         self.title = False
         self.json_script = False
         self.json_text = ""
+        self.headings = []
+        self.heading_level = None
+        self.heading_text = ""
         self.feed(path.read_text())
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if re.fullmatch(r"h[1-6]", tag):
+            self.heading_level = int(tag[1])
+            self.heading_text = ""
         if "id" in attrs:
             assert attrs["id"] not in self.ids, f"Duplicate ID in {self.path}: {attrs['id']}"
             self.ids.add(attrs["id"])
@@ -43,10 +49,15 @@ class Page(HTMLParser):
                 self.refs.append(attrs[key])
 
     def handle_data(self, data):
+        if self.heading_level is not None:
+            self.heading_text += data
         if self.json_script:
             self.json_text += data
 
     def handle_endtag(self, tag):
+        if re.fullmatch(r"h[1-6]", tag) and self.heading_level is not None:
+            self.headings.append((self.heading_level, self.heading_text.strip()))
+            self.heading_level = None
         if tag == "script" and self.json_script:
             assert json.loads(self.json_text)["@type"] == "Person"
             self.json_script = False
@@ -61,6 +72,15 @@ for relative in ("index.html", "pt/index.html", "404.html"):
     page = pages[root / relative]
     assert page.title and page.canonical and page.description, f"Missing metadata: {relative}"
     assert "{%" not in page.path.read_text(), f"Unrendered Liquid: {relative}"
+    assert sum(level == 1 for level, _ in page.headings) == 1, f"Expected one H1: {relative}"
+    previous = 0
+    for level, text in page.headings:
+        assert text, f"Empty translated heading in {relative}"
+        assert level <= previous + 1, f"Skipped heading level at {text!r} in {relative}"
+        previous = level
+
+# Language switching preserves fragments, including links to individual cases.
+assert pages[root / "index.html"].ids == pages[root / "pt/index.html"].ids, "Translated fragment IDs differ"
 count = 0
 for path, page in pages.items():
     for ref in page.refs:

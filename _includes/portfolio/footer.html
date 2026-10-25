@@ -1,0 +1,10 @@
+<footer class="container site-footer">
+  <div>
+    <a class="brand" href="{{ home | relative_url }}">
+      <span class="brand-mark" aria-hidden="true">d<span>.</span></span>
+      <span>Danilo Santos</span>
+    </a>
+    <p>© {{ 'now' | date: '%Y' }} · {{ t.footer }}</p>
+  </div>
+  <a class="text-link" href="{% if page.error %}{{ home | relative_url }}{% else %}#top{% endif %}">{{ t.back_top }} ↑</a>
+</footer>

@@ -3,140 +3,189 @@ other_locale: pt-BR
 other_url: /pt/
 switch_label: Ler em português
 title: Danilo Santos — Full-Stack Engineer
-description: Full-stack engineer building reliable web products with Angular, React and TypeScript. Product development, legacy modernization, accessibility and thoughtful delivery.
+description: Full-stack engineer with deep frontend experience. Proven results in API and React performance, payment-system modernization, and AI-assisted product delivery. Now expanding into AI-enabled applications.
 skip: Skip to content
 menu: Toggle navigation
-nav: [Expertise, Selected work, Experience, Contact]
+nav:
+  - { label: Selected work, anchor: work }
+  - { label: How I work, anchor: expertise }
+  - { label: Experience, anchor: experience }
+  - { label: Contact, anchor: contact }
 cv: Download CV
 cv_language: PDF · English
-eyebrow: FULL-STACK ENGINEER
-hero_start: Good ideas deserve
-hero_accent: great engineering.
-intro: I'm Danilo. I build thoughtful web products, modernize complex systems, and take ideas from the first interface to production.
-hero_detail: Angular, React & TypeScript. A computer science foundation. A product-minded approach.
-view_work: Explore my work
-contact_action: Let's talk
-portrait_alt: Portrait of Danilo Santos
-portrait_caption: Human behind the code
-scene_label: Human direction. Agent execution.
-scene_caption: I shape the idea, guide the agents, and review what we build together.
-scene_title: From an idea to a working product.
+
+hero:
+  eyebrow: FULL-STACK ENGINEER · PRODUCT-MINDED
+  start: From first prototype
+  accent: to business-critical software.
+  intro: I'm Danilo. I build web products, modernize complex applications, and solve performance problems across the frontend and backend.
+  detail: 7+ years building web applications. Angular and React depth, with hands-on ownership of APIs, data workflows, testing, and delivery.
+  direction: "My next chapter: AI-enabled applications"
+  primary_action: See selected results
+  contact_action: Let's talk
+  portrait_alt: Portrait of Danilo Santos
+  portrait_caption: Danilo Santos · Computer Science, UnB
+
+proof:
+  label: MEASURABLE RESULTS · GASHUB
+  items:
+    - value: "95.7%"
+      title: lower warm API latency
+      context: Products API · ~132 ms average across 100 requests
+      anchor: work-performance
+    - value: "97%"
+      title: lower React mount time
+      context: Trading page · initial mount from 59.1 ms to 1.8 ms
+      anchor: work-performance
+    - value: "< 3 weeks"
+      title: from concept to working prototype
+      context: Real-time trading workflows for market validation
+      anchor: work-validation
+worked: EXPERIENCE ACROSS PRODUCT TEAMS
+
+work:
+  label: "01 / SELECTED RESULTS"
+  title: The work behind the numbers.
+  intro: Three examples of how I approach speed, reliability, and product delivery — and the decisions I took responsibility for.
+  contribution_label: WHAT I DID
+  outcome_label: THE RESULT
+  visual_label: ENGINEERING SNAPSHOT
+  items:
+    - id: performance
+      company: GasHub
+      category: FULL-STACK PERFORMANCE & ARCHITECTURE
+      title: A faster product, from interface to database.
+      problem: A natural gas trading platform needed faster product listings and an architecture that could support complex business operations as it grew.
+      contributions:
+        - Profiled the Products API, parallelized independent queries, and consolidated row-level security transactions.
+        - Used React profiling and virtualized lists to reduce render work across five independently filtered trading blocks.
+        - Introduced Drizzle on Deno, Zod validation, repositories, and Unit of Work transactions to separate business rules from data access.
+      outcome: Warm API latency fell 95.7%, to ~132 ms across 100 requests. Initial React mount time dropped from 59.1 ms to 1.8 ms. Multi-step backend operations gained atomic transactions.
+      tags: [React, Deno, Drizzle ORM, PostgreSQL]
+      diagram: performance
+    - id: modernization
+      company: MyTime
+      category: BUSINESS-CRITICAL MODERNIZATION
+      title: Modern payments. Uninterrupted operations.
+      problem: A legacy AngularJS and CoffeeScript payment system needed to evolve while businesses continued to depend on it every day.
+      contributions:
+        - Designed and implemented an incremental Angular migration, allowing legacy and modern functionality to coexist.
+        - Added Jest and Testing Library coverage and rebuilt core POS modules with predictable NgRx state boundaries.
+        - Implemented accessible workflows following W3C standards, including support for visually impaired users.
+      outcome: The payment migration completed without downtime. Rebuilt POS modules supported a successful relaunch and a more maintainable foundation for future changes.
+      tags: [Angular, TypeScript, NgRx, Accessibility]
+      diagram: migration
+    - id: validation
+      company: GasHub
+      category: PRODUCT VALIDATION & AI-ASSISTED DELIVERY
+      title: Less time to build. More time to learn.
+      problem: An early-stage team needed a working natural gas trading product to test its business model with users and stakeholders.
+      contributions:
+        - Built core buyer-seller workflows and notifications with React and Supabase, using AI agents to accelerate implementation.
+        - Refined requirements with the team and used shared Pencil.dev design artifacts to connect Product and Engineering.
+        - Reviewed and adapted generated code to existing patterns, then added unit and end-to-end tests as the product evolved.
+      outcome: A functional prototype delivered in under three weeks for market validation. Later form and design restructuring work went from one week to three days, including review.
+      tags: [React, Supabase, AI agents, Playwright]
+      diagram: market
+
+approach:
+  label: "02 / HOW I WORK"
+  title: Own the problem. Make the team stronger.
+  intro: My contribution goes beyond implementing a screen. I connect business workflows, technical decisions, and the people who need to maintain the result.
+  items:
+    - title: Start with the business workflow
+      text: Refine requirements, test technical feasibility, and focus the first version on what the team needs to learn. At GasHub, that meant validating the trading workflow before expanding the product.
+    - title: Make change manageable
+      text: Use incremental migrations, explicit API contracts, and clear state and transaction boundaries. Protect what already works while giving the product room to evolve.
+    - title: Measure, review, and verify
+      text: Profile before optimizing. Use meaningful automated tests and accessible interfaces. AI-generated code gets the same critical review as any other implementation.
+    - title: Share the context
+      text: Document business rules and architecture, onboard engineers, and give Product and Engineering a shared reference. Reduce dependence on any one person to keep delivery moving.
+
+scene_label: AI-ASSISTED DELIVERY
+scene_caption: I define the workflow, guide the agents, and review the result. AI accelerates implementation; engineering judgment connects it to a useful, maintainable product.
+scene_title: Human direction. Accountable delivery.
 scene_coordinator: DANILO
 scene_idea: IDEA
 scene_roles: [BUILD, CONNECT, VERIFY]
 scene_status: From idea to shipped
 scene_stages:
-  [
-    Shaping the idea,
-    Assigning the work,
-    Building the interface,
-    Connecting the services,
-    Reviewing and refining,
-    Approved. Ready to ship.,
-  ]
+  - Shaping the idea
+  - Assigning the work
+  - Building the interface
+  - Connecting the services
+  - Reviewing and refining
+  - Approved. Ready to ship.
 scene_play: Play animation
 scene_pause: Pause animation
 scene_replay: Replay
 scene_description: A human coordinator inspired by Danilo introduces an idea, assigns tasks to three agents, reviews an issue, directs a fix, and approves the finished application.
-worked: EXPERIENCE IN GOOD COMPANY
-expertise_label: "01 / EXPERTISE"
-expertise_title: The whole product picture.
-expertise_intro: Frontend depth, full-stack perspective. I connect the details that make software useful, dependable, and easier to evolve.
-expertise:
-  - icon: "◈"
-    title: Products, end to end
-    text: From a first prototype to real-time workflows, I turn product requirements into applications people can actually use.
-    tags: [React, Angular, TypeScript, Supabase]
-  - icon: "↗"
-    title: Modernize with care
-    text: Move legacy systems forward incrementally, with reusable components and architecture that supports the next chapter.
-    tags: [AngularJS → Angular, Architecture, Ionic]
-  - icon: "✓"
-    title: Quality built in
-    text: Accessible interfaces and meaningful automated tests, so the product works for more people and keeps working as it grows.
-    tags: [Jest, Testing Library, Playwright, Accessibility]
-  - icon: "⌘"
-    title: A shorter path to delivery
-    text: Connect services, automate delivery, and use AI agents deliberately to move from an idea to a validated product.
-    tags: [AWS Lambda, CI/CD, GitHub Actions, AI-assisted development]
-work_label: "02 / SELECTED WORK"
-work_title: Real problems. Working software.
-work_intro: A few chapters in building, improving, and shipping products. Based on work with teams across trading, payments, and energy.
-contribution: MY CONTRIBUTION
-outcome: THE OUTCOME
-work:
-  - company: GasHub
-    category: PRODUCT DEVELOPMENT · 2025—PRESENT
-    title: A market, connected in real time.
-    text: A natural gas trading application connecting buyers and sellers through real-time matching and instant notifications.
-    contribution: Built a functional React and Supabase prototype with AI agents, refined business workflows with the team, and strengthened the codebase with unit and end-to-end tests.
-    outcome: Functional prototype delivered in under three weeks for market validation.
-    tags: [React, Supabase, Testing Library, Playwright]
-    diagram: market
-  - company: MyTime
-    category: LEGACY MODERNIZATION · 2022—2025
-    title: A new foundation. No interruption.
-    text: Modernizing a legacy payment and point-of-sale system while keeping everyday operations running.
-    contribution: Migrated AngularJS and CoffeeScript modules to Angular and TypeScript, integrated old and new systems, and rebuilt core POS modules with automated tests and accessibility in mind.
-    outcome: Continuous operations during the transition, with a more maintainable system and a successful POS relaunch.
-    tags: [Angular, TypeScript, Jest, Accessibility]
-    diagram: migration
-  - company: GreenAnt
-    category: ENERGY & MOBILE · 2020—2021
-    title: Energy data, made actionable.
-    text: Bringing electricity consumption data, monitoring, and invoice payment into accessible web and mobile experiences.
-    contribution: Built reusable Angular dashboard components, led an incremental AngularJS migration, developed an AWS Lambda PDF service, and launched an Ionic mobile app.
-    outcome: A connected web and mobile experience, supported by automated delivery pipelines.
-    tags: [Angular, Ionic, AWS Lambda, GitLab CI]
-    diagram: energy
-experience_label: "03 / EXPERIENCE"
-experience_title: Built with teams. Shipped for people.
-experience_intro: A career across product development, complex migrations, and data-rich applications.
-experience:
-  - company: GasHub
-    role: Full Stack Engineer
-    dates: Jun 2025 — Present
-    text: Building a natural gas trading product with real-time workflows. Combining rapid prototyping, AI-assisted development, and a maintainable, tested codebase.
-    tags: React · Supabase · Playwright
-  - company: MyTime
-    role: Frontend Software Engineer
-    dates: Apr 2022 — Apr 2025
-    text: Modernized payment and POS systems from AngularJS to Angular. Rebuilt core modules, integrated legacy and modern applications, and supported accessible workflows.
-    tags: Angular · TypeScript · Jest · Testing Library
-  - company: Twenty20 Solutions
-    role: Frontend Software Engineer
-    dates: Jan 2022 — Mar 2022
-    text: Architected a browser-based desktop environment with modular mini-applications. Introduced Jest, GitHub Actions workflows, linting, and shared environment configuration.
-    tags: Angular · Clean Architecture · GitHub Actions
-  - company: GreenAnt
-    role: Frontend Software Engineer
-    dates: Jan 2020 — Dec 2021
-    text: Developed energy dashboards and an Ionic mobile application, led incremental modernization, and built AWS Lambda and GitLab CI integrations.
-    tags: Angular · Ionic · AWS · GitLab CI
-earlier_title: Earlier chapters
-earlier:
-  - company: Universidade de Brasília
-    role: Frontend Software Developer
-    dates: Aug 2018 — Aug 2020
-    text: Mobile-first dashboard making government data easier to explore.
-  - company: Grupo Gera
-    role: Frontend Software Engineer
-    dates: Feb 2019 — Dec 2019
-    text: Energy consumption analytics for enterprise clients.
-  - company: Finatec
-    role: Frontend Software Developer
-    dates: May 2017 — Jan 2018
-    text: Angular application for internal military administration data.
-about_label: THE HUMAN SIDE
-about_title: Curious by nature. Practical by design.
-about_text: I enjoy making complicated things feel straightforward. My background is in frontend engineering, but my work follows the product wherever it needs to go — into integrations, delivery pipelines, testing, and the conversations that turn requirements into useful software.
-education_label: EDUCATION
-degree: Bachelor's degree in Computer Science
-university: Universidade de Brasília · 2014—2022
-contact_label: "04 / WHAT’S NEXT"
-contact_title: Let's build something worthwhile.
-contact_text: Have a product to build, a system to modernize, or an engineering challenge to work through? Let's start a conversation.
-email_action: Send me an email
+
+direction:
+  label: "03 / WHAT I'M BUILDING TOWARD"
+  title: Product engineering, extended into AI.
+  intro: My next step is building applications where AI is part of the user experience. I bring the same focus on useful workflows, performance, and maintainability that guides my full-stack work.
+  items:
+    - label: PROFESSIONAL PRACTICE
+      title: AI-assisted development
+      text: Already part of how I deliver at GasHub — from rapid prototypes to design-to-code workflows, with human review and automated tests.
+    - label: HANDS-ON EXPLORATION
+      title: Retrieval and RAG
+      text: Built a personal RAG pipeline using Python, scikit-learn, and NumPy. A practical foundation for exploring retrieval-augmented applications.
+    - label: CONTINUING EDUCATION
+      title: AI engineering foundations
+      text: Completed Gen AI, RAG, and System Retrieval foundation modules in Dev Eficiente's AI Engineering specialization.
+  closing: I'm looking to apply this foundation to real product problems in a senior full-stack role, while deepening my experience with AI-enabled applications.
+
+career:
+  label: "04 / EXPERIENCE"
+  title: Frontend depth. Full-stack ownership.
+  intro: My career has moved from interfaces and data dashboards to business-critical migrations and end-to-end product development. That frontend foundation still shapes how I think about the whole system.
+  items:
+    - company: GasHub
+      role: Full Stack Engineer
+      dates: Jun 2025 — Present
+      text: Real-time trading product at an early-stage startup. Scope spans frontend, backend architecture, performance, API integration, and onboarding engineers into the product's business rules.
+      tags: React · Deno · Drizzle · PostgreSQL · Supabase
+    - company: MyTime
+      role: Frontend Software Engineer
+      dates: Apr 2022 — Mar 2025
+      text: Payment and POS workflows for an international scheduling platform. Built experience in complex state management, accessible interfaces, and evolving systems that businesses rely on.
+      tags: Angular · NgRx · TypeScript · Jest
+    - company: Twenty20 Solutions
+      role: Frontend Software Engineer
+      dates: Jan 2022 — Mar 2022
+      text: Designed the Angular foundation for a browser-based desktop with modular mini-applications, and established testing, linting, and CI/CD conventions for the team.
+      tags: Angular · Clean Architecture · GitHub Actions
+    - company: GreenAnt
+      role: Frontend Software Engineer
+      dates: Jan 2020 — Dec 2021
+      text: Energy dashboards and an Ionic mobile app. Led an incremental AngularJS migration, built an AWS Lambda PDF service, and automated delivery with GitLab CI.
+      tags: Angular · Ionic · AWS Lambda · GitLab CI
+  earlier_title: Earlier foundations
+  earlier:
+    - company: Universidade de Brasília
+      role: Frontend Software Developer
+      dates: Aug 2018 — Aug 2020
+      text: Mobile-first research dashboard making government data easier to discover and explore.
+    - company: Gera Energia Brasil
+      role: Frontend Software Engineer
+      dates: Feb 2019 — Dec 2019
+      text: Design and development of energy consumption analytics for enterprise clients.
+    - company: Finatec
+      role: Frontend Developer → Junior Java Developer
+      dates: May 2017 — Jun 2018
+      text: Angular administration application and Java EE backend work, with Docker and microservices fundamentals.
+  education_label: EDUCATION
+  degree: Bachelor's degree in Computer Science
+  university: Universidade de Brasília · 2014—2022
+
+contact:
+  label: "05 / LET'S TALK"
+  title: Your next product challenge. My next chapter.
+  text: I'm interested in senior full-stack opportunities where I can own complex workflows, improve performance and architecture, and help build AI-enabled products.
+  detail: If your team needs frontend depth, a full-stack perspective, and someone who follows the problem through to delivery, let's talk.
+  email_action: Start a conversation
 footer: Built with intention. Shipped on GitHub Pages.
 back_top: Back to top
 not_found: Page not found
@@ -148,6 +197,6 @@ diagram_match: REAL-TIME MATCH
 diagram_legacy: Legacy
 diagram_modern: Modern
 diagram_continuity: CONTINUOUS OPERATIONS
-diagram_data: Energy data
-diagram_web: Web
-diagram_mobile: Mobile
+diagram_interface: React interface
+diagram_api: Deno API
+diagram_database: PostgreSQL

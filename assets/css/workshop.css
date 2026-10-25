@@ -11,8 +11,8 @@
 .agent-workshop {
   position: relative;
   isolation: isolate;
-  margin-top: 0;
-  margin-bottom: 46px;
+  margin-top: 32px;
+  margin-bottom: 0;
   grid-template-columns: 0.85fr 1.15fr;
   min-height: 420px;
   background:

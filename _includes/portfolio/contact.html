@@ -1,0 +1,13 @@
+<section class="container contact-section" id="contact" aria-labelledby="contact-title">
+  <p class="eyebrow">{{ t.contact.label }}</p>
+  <h2 id="contact-title">{{ t.contact.title }}</h2>
+  <p>{{ t.contact.text }}</p>
+  <p>{{ t.contact.detail }}</p>
+  <a class="contact-email" href="mailto:{{ p.email }}">{{ p.email }} <span aria-hidden="true">↗</span></a>
+  <div class="contact-links">
+    <a class="button button-primary" href="mailto:{{ p.email }}">{{ t.contact.email_action }} <span aria-hidden="true">↗</span></a>
+    <a class="text-link" href="{{ p.linkedin }}">LinkedIn ↗</a>
+    <a class="text-link" href="{{ p.github }}">GitHub ↗</a>
+    <a class="text-link" href="{{ p.resume | relative_url }}" download>{{ t.cv }} ↓</a>
+  </div>
+</section>

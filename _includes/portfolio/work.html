@@ -1,0 +1,12 @@
+<section class="container section" id="work" aria-labelledby="work-title">
+  <div class="section-heading">
+    <p class="eyebrow">{{ t.work.label }}</p>
+    <h2 id="work-title">{{ t.work.title }}</h2>
+    <p>{{ t.work.intro }}</p>
+  </div>
+  <div class="project-list">
+    {% for project in t.work.items %}
+      {% include portfolio/project-card.html project=project number=forloop.index %}
+    {% endfor %}
+  </div>
+</section>

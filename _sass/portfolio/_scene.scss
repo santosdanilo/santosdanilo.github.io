@@ -1,0 +1,323 @@
+// Static illustration primitives. Timeline, controls, and renderer states are
+// in assets/css/workshop.css; keeping these separate makes the fallback legible.
+.agent-scene {
+  position: relative;
+  height: 350px;
+  width: 100%;
+  isolation: isolate;
+}
+.scene-grid {
+  position: absolute;
+  inset: 15% 2% 0;
+  background-image:
+    linear-gradient(#bd93f90a 1px, transparent 1px),
+    linear-gradient(90deg, #bd93f90a 1px, transparent 1px);
+  background-size: 28px 28px;
+  transform: perspective(400px) rotateX(50deg) rotateZ(-15deg);
+  mask-image: radial-gradient(ellipse, #000 10%, transparent 70%);
+  z-index: -1;
+}
+.assembly {
+  position: absolute;
+  height: 145px;
+  background: #303341;
+  border: 1px solid #9c87ba;
+  border-radius: 9px;
+  transform: perspective(700px) rotateY(-18deg) rotateX(12deg) rotateZ(-8deg);
+  box-shadow:
+    7px 10px 0 #21232e,
+    8px 11px 0 #726184,
+    10px 22px 30px #0004;
+}
+.assembly-top {
+  height: 24px;
+  border-bottom: 1px solid #555367;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-inline: 10px;
+}
+.assembly-top > i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--pink);
+}
+.assembly-top > i:nth-child(2) {
+  background: #f1fa8c;
+}
+.assembly-top > i:nth-child(3) {
+  background: var(--green);
+}
+.assembly-top > span {
+  margin-left: auto;
+  font: 7px var(--mono);
+  color: var(--muted);
+}
+.assembly-body {
+  display: flex;
+  padding: 12px;
+  gap: 13px;
+}
+.ui-sidebar {
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1px solid #45495e;
+  padding-right: 9px;
+}
+.ui-sidebar b {
+  height: 12px;
+  border-radius: 3px;
+  background: var(--purple);
+}
+.ui-sidebar i {
+  height: 3px;
+  background: #66687d;
+  border-radius: 3px;
+}
+.ui-content {
+  flex: 1;
+}
+.ui-title {
+  height: 6px;
+  width: 65%;
+  background: #c9c3d8;
+  border-radius: 3px;
+}
+.ui-line {
+  height: 3px;
+  width: 90%;
+  background: #626579;
+  border-radius: 3px;
+  margin-top: 6px;
+}
+.ui-cards {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+.ui-cards i {
+  height: 22px;
+  border: 1px solid #bd93f955;
+  background: #bd93f917;
+  flex: 1;
+  border-radius: 3px;
+}
+.ui-cards i:nth-child(2) {
+  border-color: #8be9fd55;
+  background: #8be9fd10;
+}
+.ui-cards i:nth-child(3) {
+  border-color: #50fa7b55;
+  background: #50fa7b10;
+}
+.ui-chart {
+  display: flex;
+  align-items: flex-end;
+  height: 27px;
+  gap: 7px;
+  margin-top: 8px;
+  border-bottom: 1px solid #57566c;
+}
+.ui-chart i {
+  width: 12px;
+  height: 35%;
+  background: #8be9fd88;
+  border-radius: 2px 2px 0 0;
+}
+.ui-chart i:nth-child(2) {
+  height: 60%;
+}
+.ui-chart i:nth-child(3) {
+  height: 45%;
+  background: #bd93f9aa;
+}
+.ui-chart i:nth-child(4) {
+  height: 85%;
+  background: #bd93f9aa;
+}
+.ui-chart i:nth-child(5) {
+  height: 100%;
+  background: #50fa7baa;
+}
+.assembly-check {
+  position: absolute;
+  right: -15px;
+  bottom: -12px;
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  background: #343b43;
+  border: 1px solid #50fa7b88;
+  color: var(--green);
+  border-radius: 9px;
+  box-shadow: 3px 4px 0 #20232e;
+}
+.bot {
+  --bot: #bd93f9;
+  --bot-shadow: #755995;
+  position: absolute;
+  width: 69px;
+  height: 101px;
+  filter: drop-shadow(7px 14px 7px #0003);
+}
+.bot-builder {
+  transform: rotate(-8deg);
+}
+.bot-connector {
+  --bot: var(--cyan);
+  --bot-shadow: #518d9a;
+  transform: rotate(9deg);
+}
+.bot-reviewer {
+  --bot: #a7f3bb;
+  --bot-shadow: #5b9670;
+  transform: rotate(5deg) scale(0.85);
+}
+.bot-head {
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  width: 53px;
+  height: 40px;
+  border-radius: 15px 15px 11px 11px;
+  background: linear-gradient(135deg, #fff9, var(--bot) 45%, var(--bot-shadow));
+  box-shadow: 3px 4px 0 var(--bot-shadow);
+  border: 1px solid #fff4;
+  z-index: 2;
+}
+.bot-face {
+  position: absolute;
+  inset: 10px 7px 8px;
+  background: #242b3d;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: inset 1px 2px 3px #0008;
+}
+.bot-face i {
+  height: 7px;
+  width: 4px;
+  background: var(--bot);
+  border-radius: 3px;
+  box-shadow: 0 0 5px var(--bot);
+}
+.bot-antenna {
+  position: absolute;
+  left: 33px;
+  top: 0;
+  width: 2px;
+  height: 12px;
+  background: var(--bot-shadow);
+}
+.bot-antenna::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bot);
+  top: -3px;
+  left: -2px;
+}
+.bot-body {
+  position: absolute;
+  left: 14px;
+  top: 51px;
+  width: 41px;
+  height: 31px;
+  border-radius: 9px 9px 13px 13px;
+  background: linear-gradient(130deg, var(--bot), var(--bot-shadow));
+  box-shadow: 3px 3px 0 var(--bot-shadow);
+  display: grid;
+  place-items: center;
+  color: #242b3d;
+  font: 700 19px var(--mono);
+  z-index: 2;
+}
+.bot-arm {
+  width: 12px;
+  height: 27px;
+  background: linear-gradient(90deg, var(--bot), var(--bot-shadow));
+  border-radius: 7px;
+  position: absolute;
+  top: 52px;
+}
+.arm-left {
+  left: 0;
+  transform: rotate(25deg);
+}
+.arm-right {
+  right: 0;
+  transform: rotate(-35deg);
+}
+.bot-builder .arm-right {
+  transform: rotate(-100deg);
+  top: 42px;
+  right: -3px;
+}
+.bot-connector .arm-left {
+  transform: rotate(105deg);
+  top: 43px;
+  left: -3px;
+}
+.bot-feet {
+  display: flex;
+  gap: 11px;
+  position: absolute;
+  top: 81px;
+  left: 15px;
+}
+.bot-feet i {
+  height: 13px;
+  width: 15px;
+  background: linear-gradient(var(--bot), var(--bot-shadow));
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 #1d2331;
+}
+.bot-label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 114px;
+  font: 7px var(--mono);
+  letter-spacing: 0.15em;
+  color: var(--bot);
+  white-space: nowrap;
+}
+.floating-block {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #d9bbff, #9b74ce);
+  border: 1px solid #e4c9ff;
+  border-radius: 5px;
+  transform: rotate(-14deg);
+  box-shadow: 4px 5px 0 #66527e;
+  color: #382c4a;
+}
+.scene-spark {
+  position: absolute;
+  color: var(--purple);
+  font: 16px var(--mono);
+}
+.spark-one {
+  left: 18%;
+  top: 24%;
+  color: var(--cyan);
+}
+.spark-two {
+  left: 83%;
+  top: 70%;
+}
+.spark-three {
+  left: 63%;
+  top: 13%;
+  font-size: 11px;
+  color: #f1fa8c;
+}

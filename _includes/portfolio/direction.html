@@ -1,0 +1,17 @@
+<section class="container section direction-section" id="about" aria-labelledby="direction-title">
+  <div class="section-heading">
+    <p class="eyebrow">{{ t.direction.label }}</p>
+    <h2 id="direction-title">{{ t.direction.title }}</h2>
+    <p>{{ t.direction.intro }}</p>
+  </div>
+  <div class="direction-grid">
+    {% for item in t.direction.items %}
+      <article>
+        <p class="eyebrow">{{ item.label }}</p>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </article>
+    {% endfor %}
+  </div>
+  <p class="direction-closing">{{ t.direction.closing }}</p>
+</section>

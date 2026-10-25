@@ -3,140 +3,189 @@ other_locale: en
 other_url: /
 switch_label: Read in English
 title: Danilo Santos — Engenheiro Full Stack
-description: Engenheiro full stack criando produtos web confiáveis com Angular, React e TypeScript. Desenvolvimento de produtos, modernização, acessibilidade e qualidade.
+description: Engenheiro full stack com profundidade em frontend. Resultados em performance de APIs e React, modernização de pagamentos e entregas com IA. Expandindo a atuação para aplicações com IA.
 skip: Pular para o conteúdo
 menu: Abrir ou fechar navegação
-nav: [Especialidades, Projetos, Experiência, Contato]
+nav:
+  - { label: Resultados, anchor: work }
+  - { label: Como trabalho, anchor: expertise }
+  - { label: Experiência, anchor: experience }
+  - { label: Contato, anchor: contact }
 cv: Baixar currículo
 cv_language: PDF · Inglês
-eyebrow: ENGENHEIRO FULL STACK
-hero_start: Boas ideias merecem
-hero_accent: ótima engenharia.
-intro: Sou Danilo. Desenvolvo produtos web com atenção aos detalhes, modernizo sistemas complexos e levo ideias da primeira interface à produção.
-hero_detail: Angular, React e TypeScript. Formação em Ciência da Computação. Foco no produto.
-view_work: Conheça meu trabalho
-contact_action: Vamos conversar
-portrait_alt: Retrato de Danilo Santos
-portrait_caption: A pessoa por trás do código
-scene_label: Direção humana. Execução com agentes.
-scene_caption: Eu desenvolvo a ideia, oriento os agentes e reviso o que construímos juntos.
-scene_title: Da ideia a um produto funcionando.
+
+hero:
+  eyebrow: ENGENHEIRO FULL STACK · FOCO NO PRODUTO
+  start: Do primeiro protótipo
+  accent: aos sistemas críticos para o negócio.
+  intro: Sou Danilo. Desenvolvo produtos web, modernizo aplicações complexas e resolvo problemas de performance no frontend e no backend.
+  detail: Mais de 7 anos desenvolvendo aplicações web. Profundidade em Angular e React, com atuação direta em APIs, fluxos de dados, testes e entrega.
+  direction: "Meu próximo capítulo: aplicações com IA"
+  primary_action: Veja os resultados
+  contact_action: Vamos conversar
+  portrait_alt: Retrato de Danilo Santos
+  portrait_caption: Danilo Santos · Ciência da Computação, UnB
+
+proof:
+  label: RESULTADOS MENSURÁVEIS · GASHUB
+  items:
+    - value: "95,7%"
+      title: menos latência na API aquecida
+      context: API de produtos · média de ~132 ms em 100 requisições
+      anchor: work-performance
+    - value: "97%"
+      title: menos tempo de montagem no React
+      context: Página de negociação · montagem inicial de 59,1 ms para 1,8 ms
+      anchor: work-performance
+    - value: "< 3 semanas"
+      title: do conceito ao protótipo funcional
+      context: Fluxos de negociação em tempo real para validação de mercado
+      anchor: work-validation
+worked: EXPERIÊNCIA EM EQUIPES DE PRODUTO
+
+work:
+  label: "01 / RESULTADOS SELECIONADOS"
+  title: O trabalho por trás dos números.
+  intro: Três exemplos de como trato velocidade, confiabilidade e entrega de produto — e das decisões pelas quais assumi responsabilidade.
+  contribution_label: O QUE FIZ
+  outcome_label: O RESULTADO
+  visual_label: VISÃO DA ENGENHARIA
+  items:
+    - id: performance
+      company: GasHub
+      category: PERFORMANCE FULL STACK E ARQUITETURA
+      title: Um produto mais rápido, da interface ao banco.
+      problem: Uma plataforma de comercialização de gás natural precisava de listagens mais rápidas e de uma arquitetura capaz de sustentar operações de negócio complexas conforme o produto crescia.
+      contributions:
+        - Analisei a performance da API de produtos, paralelizei consultas independentes e consolidei transações com políticas de acesso por linha.
+        - Usei profiling do React e listas virtualizadas para reduzir o trabalho de renderização em cinco blocos de negociação com filtros independentes.
+        - Introduzi Drizzle no Deno, validação com Zod, repositórios e transações com Unit of Work para separar regras de negócio do acesso a dados.
+      outcome: A latência da API aquecida caiu 95,7%, para ~132 ms em 100 requisições. A montagem inicial no React passou de 59,1 ms para 1,8 ms. Operações de backend com múltiplas etapas ganharam transações atômicas.
+      tags: [React, Deno, Drizzle ORM, PostgreSQL]
+      diagram: performance
+    - id: modernization
+      company: MyTime
+      category: MODERNIZAÇÃO DE SISTEMAS CRÍTICOS
+      title: Pagamentos modernos. Operação contínua.
+      problem: Um sistema de pagamentos em AngularJS e CoffeeScript precisava evoluir enquanto empresas continuavam dependendo dele todos os dias.
+      contributions:
+        - Planejei e implementei uma migração incremental para Angular, permitindo a coexistência de funcionalidades legadas e modernas.
+        - Adicionei testes com Jest e Testing Library e reconstruí módulos centrais do POS com limites de estado bem definidos em NgRx.
+        - Implementei fluxos acessíveis seguindo os padrões W3C, incluindo suporte a pessoas com deficiência visual.
+      outcome: A migração de pagamentos foi concluída sem downtime. Os módulos reconstruídos do POS apoiaram um relançamento bem-sucedido e uma base mais fácil de manter e evoluir.
+      tags: [Angular, TypeScript, NgRx, Acessibilidade]
+      diagram: migration
+    - id: validation
+      company: GasHub
+      category: VALIDAÇÃO DE PRODUTO E ENTREGAS COM IA
+      title: Menos tempo para construir. Mais para aprender.
+      problem: Uma equipe em estágio inicial precisava de um produto funcional de comercialização de gás natural para testar o modelo de negócio com usuários e stakeholders.
+      contributions:
+        - Desenvolvi os fluxos centrais entre compradores e vendedores e as notificações com React e Supabase, usando agentes de IA para acelerar a implementação.
+        - Refinei requisitos com a equipe e usei artefatos de design compartilhados no Pencil.dev para conectar Produto e Engenharia.
+        - Revisei e adaptei o código gerado aos padrões existentes e adicionei testes unitários e de ponta a ponta conforme o produto evoluiu.
+      outcome: Protótipo funcional entregue em menos de três semanas para validação de mercado. Depois, trabalhos de formulários e reestruturação de design passaram de uma semana para três dias, incluindo revisão.
+      tags: [React, Supabase, Agentes de IA, Playwright]
+      diagram: market
+
+approach:
+  label: "02 / COMO TRABALHO"
+  title: Assumir o problema. Fortalecer a equipe.
+  intro: Minha contribuição vai além de implementar uma tela. Conecto os fluxos de negócio, as decisões técnicas e as pessoas que precisam manter o resultado.
+  items:
+    - title: Começar pelo fluxo de negócio
+      text: Refinar requisitos, avaliar a viabilidade técnica e focar a primeira versão no que a equipe precisa aprender. No GasHub, isso significou validar o fluxo de negociação antes de expandir o produto.
+    - title: Tornar a mudança administrável
+      text: Usar migrações incrementais, contratos de API explícitos e limites claros de estado e transação. Preservar o que funciona e abrir espaço para o produto evoluir.
+    - title: Medir, revisar e verificar
+      text: Fazer profiling antes de otimizar. Usar testes automatizados relevantes e interfaces acessíveis. Código gerado por IA passa pela mesma revisão crítica de qualquer implementação.
+    - title: Compartilhar o contexto
+      text: Documentar regras de negócio e arquitetura, integrar novos engenheiros e criar referências comuns para Produto e Engenharia. Reduzir a dependência de uma única pessoa para manter as entregas.
+
+scene_label: DESENVOLVIMENTO COM IA
+scene_caption: Eu defino o fluxo, oriento os agentes e reviso o resultado. A IA acelera a implementação; as decisões de engenharia a conectam a um produto útil e sustentável.
+scene_title: Direção humana. Responsabilidade pela entrega.
 scene_coordinator: DANILO
 scene_idea: IDEIA
 scene_roles: [CRIAR, CONECTAR, VALIDAR]
 scene_status: Da ideia à entrega
 scene_stages:
-  [
-    Desenvolvendo a ideia,
-    Distribuindo as tarefas,
-    Construindo a interface,
-    Conectando os serviços,
-    Revisando e refinando,
-    Aprovado. Pronto para entregar.,
-  ]
+  - Desenvolvendo a ideia
+  - Distribuindo as tarefas
+  - Construindo a interface
+  - Conectando os serviços
+  - Revisando e refinando
+  - Aprovado. Pronto para entregar.
 scene_play: Reproduzir animação
 scene_pause: Pausar animação
 scene_replay: Recomeçar
 scene_description: Um coordenador humano inspirado em Danilo apresenta uma ideia, distribui tarefas para três agentes, revisa um problema, orienta a correção e aprova a aplicação pronta.
-worked: EXPERIÊNCIA EM BOA COMPANHIA
-expertise_label: "01 / ESPECIALIDADES"
-expertise_title: Uma visão completa do produto.
-expertise_intro: Profundidade no frontend, perspectiva full stack. Conecto os detalhes que tornam o software útil, confiável e mais fácil de evoluir.
-expertise:
-  - icon: "◈"
-    title: Produtos de ponta a ponta
-    text: Do primeiro protótipo aos fluxos em tempo real, transformo requisitos em aplicações que as pessoas podem usar de verdade.
-    tags: [React, Angular, TypeScript, Supabase]
-  - icon: "↗"
-    title: Modernização com cuidado
-    text: Evolução incremental de sistemas legados, com componentes reutilizáveis e arquitetura preparada para o próximo capítulo.
-    tags: [AngularJS → Angular, Arquitetura, Ionic]
-  - icon: "✓"
-    title: Qualidade desde o início
-    text: Interfaces acessíveis e testes automatizados relevantes para que o produto funcione para mais pessoas e continue funcionando ao crescer.
-    tags: [Jest, Testing Library, Playwright, Acessibilidade]
-  - icon: "⌘"
-    title: Um caminho mais curto até a entrega
-    text: Integração de serviços, automação de entregas e uso consciente de agentes de IA para transformar uma ideia em um produto validado.
-    tags: [AWS Lambda, CI/CD, GitHub Actions, Desenvolvimento com IA]
-work_label: "02 / PROJETOS SELECIONADOS"
-work_title: Problemas reais. Software funcionando.
-work_intro: Alguns capítulos construindo, evoluindo e entregando produtos com equipes dos setores de comercialização de gás, pagamentos e energia.
-contribution: MINHA CONTRIBUIÇÃO
-outcome: O RESULTADO
-work:
-  - company: GasHub
-    category: DESENVOLVIMENTO DE PRODUTO · 2025—ATUAL
-    title: Um mercado conectado em tempo real.
-    text: Uma aplicação de comercialização de gás natural que conecta compradores e vendedores com correspondência em tempo real e notificações instantâneas.
-    contribution: Desenvolvi um protótipo funcional com React, Supabase e agentes de IA, refinei os fluxos de negócio com a equipe e fortaleci o código com testes unitários e de ponta a ponta.
-    outcome: Protótipo funcional entregue em menos de três semanas para validação de mercado.
-    tags: [React, Supabase, Testing Library, Playwright]
-    diagram: market
-  - company: MyTime
-    category: MODERNIZAÇÃO DE LEGADO · 2022—2025
-    title: Uma nova base. Sem interrupções.
-    text: Modernização de um sistema legado de pagamentos e ponto de venda, mantendo as operações do dia a dia.
-    contribution: Migrei módulos de AngularJS e CoffeeScript para Angular e TypeScript, integrei os sistemas antigo e novo e reconstruí módulos centrais do POS com testes automatizados e acessibilidade.
-    outcome: Operação contínua durante a transição, com um sistema mais fácil de manter e o relançamento bem-sucedido do POS.
-    tags: [Angular, TypeScript, Jest, Acessibilidade]
-    diagram: migration
-  - company: GreenAnt
-    category: ENERGIA E MOBILE · 2020—2021
-    title: Dados de energia que viram ação.
-    text: Dados de consumo de energia, monitoramento e pagamento de faturas em experiências web e mobile acessíveis.
-    contribution: Criei componentes Angular reutilizáveis, liderei a migração incremental de AngularJS, desenvolvi um serviço de PDF com AWS Lambda e lancei um aplicativo Ionic.
-    outcome: Uma experiência conectada entre web e mobile, apoiada por pipelines de entrega automatizados.
-    tags: [Angular, Ionic, AWS Lambda, GitLab CI]
-    diagram: energy
-experience_label: "03 / EXPERIÊNCIA"
-experience_title: Em equipe. Para pessoas.
-experience_intro: Uma trajetória em desenvolvimento de produtos, migrações complexas e aplicações orientadas a dados.
-experience:
-  - company: GasHub
-    role: Engenheiro Full Stack
-    dates: Jun 2025 — Atual
-    text: Desenvolvimento de um produto de comercialização de gás natural com fluxos em tempo real. Prototipação rápida, desenvolvimento com IA e uma base de código sustentável e testada.
-    tags: React · Supabase · Playwright
-  - company: MyTime
-    role: Engenheiro de Software Frontend
-    dates: Abr 2022 — Abr 2025
-    text: Modernização de sistemas de pagamentos e POS de AngularJS para Angular. Reconstrução de módulos centrais, integração entre aplicações legadas e modernas e implementação de fluxos acessíveis.
-    tags: Angular · TypeScript · Jest · Testing Library
-  - company: Twenty20 Solutions
-    role: Engenheiro de Software Frontend
-    dates: Jan 2022 — Mar 2022
-    text: Arquitetura de um ambiente desktop no navegador com miniaplicações modulares. Introdução de Jest, GitHub Actions, linting e configuração de ambientes.
-    tags: Angular · Clean Architecture · GitHub Actions
-  - company: GreenAnt
-    role: Engenheiro de Software Frontend
-    dates: Jan 2020 — Dez 2021
-    text: Desenvolvimento de dashboards de energia e aplicativo Ionic, modernização incremental e integrações com AWS Lambda e GitLab CI.
-    tags: Angular · Ionic · AWS · GitLab CI
-earlier_title: Capítulos anteriores
-earlier:
-  - company: Universidade de Brasília
-    role: Desenvolvedor de Software Frontend
-    dates: Ago 2018 — Ago 2020
-    text: Dashboard mobile-first para facilitar a exploração de dados governamentais.
-  - company: Grupo Gera
-    role: Engenheiro de Software Frontend
-    dates: Fev 2019 — Dez 2019
-    text: Análise de consumo de energia para clientes empresariais.
-  - company: Finatec
-    role: Desenvolvedor de Software Frontend
-    dates: Mai 2017 — Jan 2018
-    text: Aplicação Angular para gestão de dados da administração militar.
-about_label: O LADO HUMANO
-about_title: Curioso por natureza. Prático por escolha.
-about_text: Gosto de tornar o complicado mais simples. Minha base é a engenharia de frontend, mas meu trabalho acompanha o produto aonde for preciso — integrações, pipelines de entrega, testes e as conversas que transformam requisitos em software útil.
-education_label: FORMAÇÃO
-degree: Bacharelado em Ciência da Computação
-university: Universidade de Brasília · 2014—2022
-contact_label: "04 / PRÓXIMO CAPÍTULO"
-contact_title: Vamos construir algo que vale a pena.
-contact_text: Tem um produto para desenvolver, um sistema para modernizar ou um desafio de engenharia para resolver? Vamos começar uma conversa.
-email_action: Envie um email
+
+direction:
+  label: "03 / MEU PRÓXIMO CAPÍTULO"
+  title: Engenharia de produto, agora também com IA.
+  intro: Meu próximo passo é desenvolver aplicações em que a IA faça parte da experiência do usuário. Levo para essa direção o mesmo foco em fluxos úteis, performance e facilidade de manutenção que orienta meu trabalho full stack.
+  items:
+    - label: PRÁTICA PROFISSIONAL
+      title: Desenvolvimento com IA
+      text: Já faz parte das minhas entregas no GasHub — de protótipos rápidos a fluxos de design para código, com revisão humana e testes automatizados.
+    - label: EXPLORAÇÃO PRÁTICA
+      title: Retrieval e RAG
+      text: Desenvolvi um pipeline pessoal de RAG com Python, scikit-learn e NumPy. Uma base prática para explorar aplicações que combinam recuperação de informação e geração.
+    - label: FORMAÇÃO CONTÍNUA
+      title: Fundamentos de engenharia de IA
+      text: Concluí os módulos de Fundamentos Gen AI, RAG e System Retrieval da Especialização em Engenharia de IA da Dev Eficiente.
+  closing: Quero aplicar essa base a problemas reais de produto em uma posição full stack sênior, enquanto aprofundo minha experiência com aplicações que incorporam IA.
+
+career:
+  label: "04 / EXPERIÊNCIA"
+  title: Profundidade no frontend. Visão full stack.
+  intro: Minha trajetória passou de interfaces e dashboards para migrações críticas e desenvolvimento de produtos de ponta a ponta. Essa base em frontend continua orientando como penso o sistema completo.
+  items:
+    - company: GasHub
+      role: Engenheiro Full Stack
+      dates: Jun 2025 — Atual
+      text: Produto de negociação em tempo real em uma startup em estágio inicial. Atuação em frontend, arquitetura de backend, performance, integração de APIs e onboarding de engenheiros nas regras de negócio.
+      tags: React · Deno · Drizzle · PostgreSQL · Supabase
+    - company: MyTime
+      role: Engenheiro de Software Frontend
+      dates: Abr 2022 — Mar 2025
+      text: Fluxos de pagamentos e POS em uma plataforma internacional de agendamento. Experiência em gerenciamento de estado complexo, interfaces acessíveis e evolução de sistemas dos quais empresas dependem.
+      tags: Angular · NgRx · TypeScript · Jest
+    - company: Twenty20 Solutions
+      role: Engenheiro de Software Frontend
+      dates: Jan 2022 — Mar 2022
+      text: Arquitetura Angular para um ambiente desktop no navegador com miniaplicações modulares e definição de convenções de testes, linting e CI/CD para a equipe.
+      tags: Angular · Clean Architecture · GitHub Actions
+    - company: GreenAnt
+      role: Engenheiro de Software Frontend
+      dates: Jan 2020 — Dez 2021
+      text: Dashboards de energia e aplicativo Ionic. Liderança na migração incremental de AngularJS, serviço de PDF com AWS Lambda e automação de entregas com GitLab CI.
+      tags: Angular · Ionic · AWS Lambda · GitLab CI
+  earlier_title: As primeiras bases
+  earlier:
+    - company: Universidade de Brasília
+      role: Desenvolvedor de Software Frontend
+      dates: Ago 2018 — Ago 2020
+      text: Dashboard de pesquisa mobile-first para facilitar a descoberta e a exploração de dados governamentais.
+    - company: Gera Energia Brasil
+      role: Engenheiro de Software Frontend
+      dates: Fev 2019 — Dez 2019
+      text: Design e desenvolvimento de análises de consumo de energia para clientes empresariais.
+    - company: Finatec
+      role: Desenvolvedor Frontend → Desenvolvedor Java Júnior
+      dates: Mai 2017 — Jun 2018
+      text: Aplicação administrativa em Angular e atuação em backend Java EE, com fundamentos de Docker e arquitetura de microservices.
+  education_label: FORMAÇÃO
+  degree: Bacharelado em Ciência da Computação
+  university: Universidade de Brasília · 2014—2022
+
+contact:
+  label: "05 / VAMOS CONVERSAR"
+  title: Seu próximo desafio de produto. Meu próximo capítulo.
+  text: Busco oportunidades full stack sênior para assumir fluxos complexos, melhorar performance e arquitetura e contribuir para produtos que incorporam IA.
+  detail: Se a sua equipe precisa de profundidade em frontend, perspectiva full stack e alguém que acompanhe o problema até a entrega, vamos conversar.
+  email_action: Comece uma conversa
 footer: Feito com propósito. Publicado no GitHub Pages.
 back_top: Voltar ao início
 not_found: Página não encontrada
@@ -148,6 +197,6 @@ diagram_match: CONEXÃO EM TEMPO REAL
 diagram_legacy: Legado
 diagram_modern: Moderno
 diagram_continuity: OPERAÇÃO CONTÍNUA
-diagram_data: Dados de energia
-diagram_web: Web
-diagram_mobile: Mobile
+diagram_interface: Interface React
+diagram_api: API Deno
+diagram_database: PostgreSQL

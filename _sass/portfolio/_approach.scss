@@ -1,0 +1,91 @@
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 36px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.approach-grid > li {
+  position: relative;
+  padding: 26px 0 26px 39px;
+  border-top: 1px solid var(--line);
+}
+.approach-number {
+  position: absolute;
+  left: 0;
+  top: 29px;
+  color: var(--purple);
+  font: 11px var(--mono);
+}
+.approach-grid h3 {
+  font-size: 19px;
+  letter-spacing: -0.025em;
+}
+.approach-grid p {
+  font-size: 14px;
+  line-height: 1.85;
+  margin-top: 12px;
+}
+.build-section {
+  border: 1px solid #575066;
+  border-radius: 12px;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
+.build-copy {
+  padding: 36px 0 36px 36px;
+}
+.build-copy .eyebrow {
+  font-size: 10px;
+}
+.build-copy h3 {
+  font-size: 31px;
+  margin-block: 17px;
+  max-width: 360px;
+}
+.build-copy > p:not(.eyebrow) {
+  font-size: 14px;
+  max-width: 340px;
+}
+.build-status {
+  font: 10px var(--mono);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  margin-top: 24px;
+}
+@media (max-width: 1050px) {
+  .build-copy {
+    padding-left: 28px;
+  }
+  .build-copy h3 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 760px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+  .approach-grid > li {
+    padding-block: 22px;
+  }
+  .approach-number {
+    top: 25px;
+  }
+  .build-copy {
+    padding: 28px 24px 0;
+  }
+  .build-copy h3 {
+    font-size: 28px;
+    max-width: none;
+  }
+  .build-copy > p:not(.eyebrow) {
+    max-width: none;
+  }
+  .build-status {
+    margin-top: 20px;
+  }
+}

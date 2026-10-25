@@ -1,0 +1,43 @@
+<section class="container section" id="experience" aria-labelledby="career-title">
+  <div class="experience-section">
+    <div class="section-heading">
+      <p class="eyebrow">{{ t.career.label }}</p>
+      <h2 id="career-title">{{ t.career.title }}</h2>
+      <p>{{ t.career.intro }}</p>
+      <a class="text-link resume-link" href="{{ p.resume | relative_url }}" download>
+        {{ t.cv }} <span aria-hidden="true">↓</span><small>{{ t.cv_language }}</small>
+      </a>
+    </div>
+    <div class="timeline">
+      {% for job in t.career.items %}
+        <article class="job">
+          <div class="job-heading"><h3>{{ job.company }}</h3><span>{{ job.dates }}</span></div>
+          <p class="job-role">{{ job.role }}</p>
+          <p>{{ job.text }}</p>
+          <p class="job-tags">{{ job.tags }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="earlier-experience">
+    <h3>{{ t.career.earlier_title }}</h3>
+    <div class="earlier-grid">
+      {% for job in t.career.earlier %}
+        <article class="earlier-role">
+          <h4>{{ job.company }}</h4>
+          <p class="earlier-dates">{{ job.dates }}</p>
+          <p>{{ job.role }}</p>
+          <p>{{ job.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="education">
+    <span aria-hidden="true">↳</span>
+    <div>
+      <p class="eyebrow">{{ t.career.education_label }}</p>
+      <h3>{{ t.career.degree }}</h3>
+      <p>{{ t.career.university }}</p>
+    </div>
+  </div>
+</section>

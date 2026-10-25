@@ -1,0 +1,18 @@
+<section class="container proof-section" aria-labelledby="proof-title">
+  <h2 class="eyebrow" id="proof-title">{{ t.proof.label }}</h2>
+  <ul class="proof-grid">
+    {% for result in t.proof.items %}
+      <li>
+        <a class="proof-result" href="#{{ result.anchor }}">
+          <strong class="proof-value">{{ result.value }}</strong>
+          <span class="proof-title">{{ result.title }} <span aria-hidden="true">↗</span></span>
+          <span class="proof-context">{{ result.context }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+<section class="container company-strip" aria-label="{{ t.worked }}">
+  <p class="eyebrow">{{ t.worked }}</p>
+  <div>{% for company in p.companies %}<span>{{ company }}</span>{% endfor %}</div>
+</section>
