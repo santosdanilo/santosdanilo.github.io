@@ -1,4 +1,4 @@
-import { COMPLETED_TIME, DURATION, stateAt } from "./workshop-state.js";
+import { COMPLETED_TIME, DURATION, clamp, stateAt } from "./workshop-state.js";
 
 const workshop = document.querySelector(".agent-workshop");
 if (workshop) startWorkshop(workshop);
@@ -140,6 +140,7 @@ function startWorkshop(root) {
       if (disposed) return;
       controller = new AbortController();
       renderer = createWorkshop(stage, {
+        clamp,
         signal: controller.signal,
         onFailure: () => {
           useFallback();

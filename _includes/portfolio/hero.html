@@ -5,10 +5,16 @@
     <p class="hero-intro">{{ t.hero.intro }}</p>
     <p class="hero-detail">{{ t.hero.detail }}</p>
     <div class="hero-actions">
-      <a class="button button-primary" href="#work">{{ t.hero.primary_action }} <span aria-hidden="true">↗</span></a>
-      <a class="text-link" href="#contact">{{ t.hero.contact_action }} <span aria-hidden="true">→</span></a>
+      <a class="button button-primary" href="#work"
+        >{{ t.hero.primary_action }} <span aria-hidden="true">↗</span></a
+      >
+      <a class="text-link" href="#contact"
+        >{{ t.hero.contact_action }} <span aria-hidden="true">→</span></a
+      >
     </div>
-    <a class="hero-direction text-link" href="#about">{{ t.hero.direction }} <span aria-hidden="true">↓</span></a>
+    <a class="hero-direction text-link" href="#about"
+      >{{ t.hero.direction }} <span aria-hidden="true">↓</span></a
+    >
     <div class="social-links">
       <a href="{{ p.github }}">GitHub <span aria-hidden="true">↗</span></a>
       <span aria-hidden="true">/</span>
@@ -18,7 +24,15 @@
   <figure class="portrait" data-tilt>
     <div class="portrait-stage">
       <div class="portrait-network" aria-hidden="true"></div>
-      <img src="{{ '/assets/images/danilo-cutout.webp' | relative_url }}" width="640" height="640" alt="{{ t.hero.portrait_alt }}" fetchpriority="high">
+      <img
+        src="{{ '/assets/images/danilo-cutout-480.webp' | relative_url }}"
+        srcset="{{ '/assets/images/danilo-cutout-480.webp' | relative_url }} 480w, {{ '/assets/images/danilo-cutout-640.webp' | relative_url }} 640w"
+        sizes="(max-width: 760px) 192px, (max-width: 1050px) 40vw, 407px"
+        width="640"
+        height="640"
+        alt="{{ t.hero.portrait_alt }}"
+        fetchpriority="high"
+      />
     </div>
     <figcaption>{{ t.hero.portrait_caption }}</figcaption>
   </figure>

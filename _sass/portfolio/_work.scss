@@ -1,14 +1,46 @@
-.project-list {
+.company-list {
   display: grid;
   gap: 24px;
+}
+.company-study {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #2e303d;
+}
+.company-study-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 23px 30px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(105deg, #353744, #2e303d);
+}
+.company-study-header .eyebrow {
+  font-size: 9px;
+  color: var(--subtle);
+}
+.company-study-header h3 {
+  margin-top: 5px;
+  font-size: 24px;
+}
+.company-study-header > span {
+  flex-shrink: 0;
+  color: var(--subtle);
+  font: 10px var(--mono);
+}
+.company-projects {
+  display: grid;
 }
 .project-card {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
-  border: 1px solid var(--line);
-  border-radius: 12px;
   overflow: hidden;
-  background: #2e303d;
+  background: transparent;
+}
+.company-projects .project-card + .project-card {
+  border-top: 1px solid var(--line);
 }
 .project-visual {
   position: relative;
@@ -52,8 +84,11 @@
   margin-bottom: 15px;
   color: var(--cyan);
 }
-.project-copy h3 {
+.project-copy h4 {
   font-size: 29px;
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
   max-width: 440px;
 }
 .project-copy p,
@@ -65,7 +100,7 @@
 .project-copy p {
   margin-top: 15px;
 }
-.project-copy h4 {
+.project-copy h5 {
   font: 10px var(--mono);
   letter-spacing: 0.1em;
   color: var(--subtle);
@@ -86,7 +121,7 @@
   padding-left: 15px;
   margin-top: 24px;
 }
-.project-outcome h4 {
+.project-outcome h5 {
   color: var(--purple);
   margin-top: 0;
 }
@@ -267,7 +302,7 @@
   .project-copy {
     padding: 27px;
   }
-  .project-copy h3 {
+  .project-copy h4 {
     font-size: 25px;
   }
   .project-visual {
@@ -287,6 +322,15 @@
 @media (max-width: 760px) {
   .project-card {
     grid-template-columns: 1fr;
+  }
+  .company-study-header {
+    padding: 20px 22px;
+  }
+  .company-study-header h3 {
+    font-size: 22px;
+  }
+  .company-study-header > span {
+    font-size: 9px;
   }
   .project-visual {
     grid-row: 2;
@@ -325,7 +369,7 @@
     grid-row: 1;
     padding: 26px;
   }
-  .project-copy h3 {
+  .project-copy h4 {
     font-size: 27px;
     max-width: none;
   }

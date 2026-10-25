@@ -30,23 +30,23 @@ proof:
   label: MEASURABLE RESULTS · GASHUB
   items:
     - value: "95.7%"
-      title: lower warm API latency
-      context: Products API · ~132 ms average across 100 requests
+      title: faster measured response
+      context: GasHub · warm benchmark · 100 samples
       anchor: work-performance
     - value: "97%"
-      title: lower React mount time
-      context: Trading page · initial mount from 59.1 ms to 1.8 ms
+      title: faster initial experience
+      context: GasHub · interface rendering benchmark
       anchor: work-performance
     - value: "−44.4%"
-      title: wait for Contracts to be route-ready
-      context: Slow 4G · cold cache · also improved on regular network
+      title: less waiting for the product to be ready
+      context: GasHub · Slow 4G · cold cache · also improved on regular network
       anchor: work-frontend-performance
 worked: EXPERIENCE ACROSS PRODUCT TEAMS
 
 work:
   label: "01 / SELECTED RESULTS"
   title: The work behind the numbers.
-  intro: Four examples of how I approach speed, reliability, and product delivery — and the decisions I took responsibility for.
+  intro: "Selected work grouped by company: performance and product delivery at GasHub, and business-critical modernization at MyTime."
   contribution_label: WHAT I DID
   outcome_label: THE RESULT
   visual_label: ENGINEERING SNAPSHOT
@@ -222,6 +222,9 @@ diagram_interface: React interface
 diagram_api: Deno API
 diagram_database: PostgreSQL
 work_notes_summary: Read measurement notes
+work_studies_label: SELECTED STUDIES
+work_studies_one: study
+work_studies_many: studies
 diagram_before: BEFORE
 diagram_after: AFTER
 diagram_route: CONTRACTS · SLOW 4G · COLD CACHE

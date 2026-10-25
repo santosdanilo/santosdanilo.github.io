@@ -4,9 +4,32 @@
     <h2 id="work-title">{{ t.work.title }}</h2>
     <p>{{ t.work.intro }}</p>
   </div>
-  <div class="project-list">
-    {% for project in t.work.items %}
-      {% include portfolio/project-card.html project=project number=forloop.index %}
+  {% assign company_studies = t.work.items | group_by: "company" %}
+  <div class="company-list">
+    {% for company_group in company_studies %} {% capture company_id
+    %}company-{{ company_group.name | slugify }}{% endcapture %}
+    <article
+      class="company-study"
+      id="{{ company_id }}"
+      aria-labelledby="{{ company_id }}-title"
+    >
+      <header class="company-study-header">
+        <div>
+          <p class="eyebrow">{{ t.work_studies_label }}</p>
+          <h3 id="{{ company_id }}-title">{{ company_group.name }}</h3>
+        </div>
+        <span
+          >{{ company_group.size }} {% if company_group.size == 1 %}{{
+          t.work_studies_one }}{% else %}{{ t.work_studies_many }}{% endif
+          %}</span
+        >
+      </header>
+      <div class="company-projects">
+        {% for project in company_group.items %} {% include
+        portfolio/project-card.html project=project number=forloop.index
+        company_number=forloop.parentloop.index %} {% endfor %}
+      </div>
+    </article>
     {% endfor %}
   </div>
 </section>

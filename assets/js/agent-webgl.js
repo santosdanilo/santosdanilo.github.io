@@ -1,8 +1,7 @@
 import * as THREE from "./vendor/three.module.min.js";
-import { clamp } from "./workshop-state.js";
 
 // Procedural geometry keeps the scene independent of model/image downloads.
-export function createWorkshop(host, { signal, onFailure }) {
+export function createWorkshop(host, { clamp, signal, onFailure }) {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("webgl2", {
     alpha: true,

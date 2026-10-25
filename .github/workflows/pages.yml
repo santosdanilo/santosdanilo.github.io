@@ -19,6 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install asset build tools
+        run: npm ci
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3"
@@ -27,6 +33,8 @@ jobs:
         run: bundle exec jekyll build --trace
         env:
           JEKYLL_ENV: production
+      - name: Minify and bundle CSS and JavaScript
+        run: npm run build:assets
       - name: Check generated routes and links
         run: python3 scripts/check_site.py
       - uses: actions/upload-pages-artifact@v3

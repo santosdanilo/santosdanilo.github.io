@@ -47,6 +47,10 @@ class Page(HTMLParser):
         for key in ("href", "src"):
             if attrs.get(key):
                 self.refs.append(attrs[key])
+        for candidate in attrs.get("srcset", "").split(","):
+            reference = candidate.strip().split(" ", 1)[0]
+            if reference:
+                self.refs.append(reference)
 
     def handle_data(self, data):
         if self.heading_level is not None:
@@ -104,5 +108,23 @@ for script in (root / "assets/js").rglob("*.js"):
         assert target.is_relative_to(root) and target.is_file(), f"Missing local module in {script.relative_to(root)}: {reference}"
         modules += 1
 assert (root / "assets/js/vendor/three-LICENSE.txt").is_file(), "Missing Three.js license"
+for asset in (
+    "assets/css/site.min.css",
+    "assets/js/portfolio.min.js",
+    "assets/js/agent-workshop.min.js",
+):
+    assert (root / asset).is_file(), f"Missing minified production asset: {asset}"
+for source_copy in (
+    "assets/css/portfolio.css",
+    "assets/css/portfolio.css.map",
+    "assets/css/workshop.css",
+    "assets/js/portfolio.js",
+    "assets/js/agent-workshop.js",
+    "assets/js/agent-webgl.js",
+    "assets/js/workshop-state.js",
+    "assets/js/scripts.js",
+    "assets/js/vendor/three.module.min.js",
+):
+    assert not (root / source_copy).exists(), f"Unbundled source included in production output: {source_copy}"
 print(f"Validated {len(pages)} HTML pages, {count} local references, metadata, language routes, JSON-LD and sitemap.")
 print(f"Validated {modules} local JavaScript module imports and the vendored Three.js license.")

@@ -14,21 +14,22 @@
       {% include project-diagram.html %}
     </div>
     <span class="visual-footnote" aria-hidden="true"
-      >{{ t.work.visual_label }} / 0{{ include.number }}</span
+      >{{ t.work.visual_label }} / 0{{ include.company_number }}.0{{
+      include.number }}</span
     >
   </div>
   <div class="project-copy">
-    <p class="eyebrow">{{ project.company }} / {{ project.category }}</p>
-    <h3 id="{{ project.id }}-title">{{ project.title }}</h3>
+    <p class="eyebrow">{{ project.category }}</p>
+    <h4 id="{{ project.id }}-title">{{ project.title }}</h4>
     <p>{{ project.problem }}</p>
-    <h4>{{ t.work.contribution_label }}</h4>
+    <h5>{{ t.work.contribution_label }}</h5>
     <ul class="project-contributions">
       {% for contribution in project.contributions %}
       <li>{{ contribution }}</li>
       {% endfor %}
     </ul>
     <div class="project-outcome">
-      <h4>{{ t.work.outcome_label }}</h4>
+      <h5>{{ t.work.outcome_label }}</h5>
       <p>{{ project.outcome }}</p>
     </div>
     {% if project.notes %}

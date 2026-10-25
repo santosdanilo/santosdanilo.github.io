@@ -1,4 +1,27 @@
 (() => {
+  const workshop = document.querySelector(".agent-workshop");
+  if (workshop) {
+    let initialized = false;
+    let observer;
+    const initializeWorkshop = () => {
+      if (initialized) return;
+      initialized = true;
+      observer?.disconnect();
+      import("./agent-workshop.js").catch(() => {});
+    };
+    if ("IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) initializeWorkshop();
+        },
+        { rootMargin: "700px 0px" },
+      );
+      observer.observe(workshop);
+    } else {
+      initializeWorkshop();
+    }
+  }
+
   const button = document.querySelector(".menu-toggle");
   const navigation = document.querySelector("#navigation");
   if (button && navigation) {

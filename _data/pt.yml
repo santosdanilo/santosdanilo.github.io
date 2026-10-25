@@ -30,23 +30,23 @@ proof:
   label: RESULTADOS MENSURÁVEIS · GASHUB
   items:
     - value: "95,7%"
-      title: menos latência na API aquecida
-      context: API de produtos · média de ~132 ms em 100 requisições
+      title: mais rapidez na resposta medida
+      context: GasHub · benchmark aquecido · 100 amostras
       anchor: work-performance
     - value: "97%"
-      title: menos tempo de montagem no React
-      context: Página de negociação · montagem inicial de 59,1 ms para 1,8 ms
+      title: mais rapidez na experiência inicial
+      context: GasHub · benchmark de renderização da interface
       anchor: work-performance
     - value: "−44,4%"
-      title: de espera até a rota Contratos ficar pronta
-      context: Slow 4G · cache frio · também melhorou na rede normal
+      title: menos espera até o produto ficar pronto
+      context: GasHub · Slow 4G · cache frio · também melhorou na rede normal
       anchor: work-frontend-performance
 worked: EXPERIÊNCIA EM EQUIPES DE PRODUTO
 
 work:
   label: "01 / RESULTADOS SELECIONADOS"
   title: O trabalho por trás dos números.
-  intro: Quatro exemplos de como trato velocidade, confiabilidade e entrega de produto — e das decisões pelas quais assumi responsabilidade.
+  intro: "Trabalhos selecionados agrupados por empresa: performance e entrega de produto no GasHub e modernização de sistemas críticos na MyTime."
   contribution_label: O QUE FIZ
   outcome_label: O RESULTADO
   visual_label: VISÃO DA ENGENHARIA
@@ -222,6 +222,9 @@ diagram_interface: Interface React
 diagram_api: API Deno
 diagram_database: PostgreSQL
 work_notes_summary: Ver notas das medições
+work_studies_label: ESTUDOS SELECIONADOS
+work_studies_one: estudo
+work_studies_many: estudos
 diagram_before: ANTES
 diagram_after: DEPOIS
 diagram_route: CONTRATOS · SLOW 4G · CACHE FRIO
