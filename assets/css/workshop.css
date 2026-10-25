@@ -57,7 +57,7 @@
 .workshop-controls {
   position: absolute;
   top: 14px;
-  left: 14px;
+  right: 14px;
   z-index: 2;
   display: flex;
   gap: 7px;
@@ -454,7 +454,7 @@
   }
   .workshop-controls {
     top: 10px;
-    left: 14px;
+    right: 14px;
   }
 }
 @media (max-width: 440px) {

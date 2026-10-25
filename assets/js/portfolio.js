@@ -46,14 +46,19 @@
   const tiltPreference = matchMedia(
     "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
   );
+  const tilt = { maxAngle: 10, maxShift: 5 };
   document.querySelectorAll("[data-tilt]").forEach((element) => {
     const surface = element.querySelector("[data-tilt-surface]") || element;
     let frame = null;
+    let bounds = null;
     const reset = () => {
       if (frame !== null) cancelAnimationFrame(frame);
       frame = null;
-      surface.style.removeProperty("--tilt-x");
-      surface.style.removeProperty("--tilt-y");
+      bounds = null;
+      element.classList.remove("is-tilting");
+      ["--tilt-x", "--tilt-y", "--tilt-shift-x", "--tilt-shift-y"].forEach(
+        (property) => surface.style.removeProperty(property),
+      );
     };
     element.addEventListener(
       "pointermove",
@@ -61,7 +66,7 @@
         if (!tiltPreference.matches || event.pointerType === "touch") return;
         if (frame !== null) cancelAnimationFrame(frame);
         frame = requestAnimationFrame(() => {
-          const bounds = element.getBoundingClientRect();
+          bounds ||= element.getBoundingClientRect();
           const x = Math.max(
             -0.5,
             Math.min(0.5, (event.clientX - bounds.left) / bounds.width - 0.5),
@@ -70,8 +75,23 @@
             -0.5,
             Math.min(0.5, (event.clientY - bounds.top) / bounds.height - 0.5),
           );
-          surface.style.setProperty("--tilt-x", `${(-y * 8).toFixed(2)}deg`);
-          surface.style.setProperty("--tilt-y", `${(x * 8).toFixed(2)}deg`);
+          element.classList.add("is-tilting");
+          surface.style.setProperty(
+            "--tilt-x",
+            `${(-y * 2 * tilt.maxAngle).toFixed(2)}deg`,
+          );
+          surface.style.setProperty(
+            "--tilt-y",
+            `${(x * 2 * tilt.maxAngle).toFixed(2)}deg`,
+          );
+          surface.style.setProperty(
+            "--tilt-shift-x",
+            `${(x * 2 * tilt.maxShift).toFixed(2)}px`,
+          );
+          surface.style.setProperty(
+            "--tilt-shift-y",
+            `${(y * 2 * tilt.maxShift).toFixed(2)}px`,
+          );
           frame = null;
         });
       },
@@ -80,6 +100,8 @@
     element.addEventListener("pointerleave", reset);
     element.addEventListener("pointercancel", reset);
     window.addEventListener("blur", reset);
+    window.addEventListener("resize", reset);
+    window.addEventListener("scroll", reset, { passive: true });
     tiltPreference.addEventListener("change", reset);
   });
 })();

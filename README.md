@@ -36,7 +36,9 @@ docker run --rm -it -p 4000:4000 -v "$PWD:/site" -v danilo-portfolio-gems:/usr/l
 - `assets/css/portfolio.scss`: Jekyll/Sass entry point that imports the component styles.
 - `_sass/portfolio/`: design tokens and base styles, navigation, hero, proof, work, approach, fallback illustration, AI direction, career, contact, and motion. Responsive rules live with their component.
 - `assets/js/portfolio.js`: progressive mobile navigation and language-anchor preservation.
-- `assets/images/danilo.webp`: optimized portrait.
+- `assets/images/danilo.webp`: original optimized portrait, retained as the source image.
+- `assets/images/danilo-cutout.webp`: locally processed portrait with a transparent background; no runtime image-processing service is used.
+- `assets/images/portrait-network.svg`: decorative UI/API/data network background, kept separate from the portrait for parallax.
 - `assets/documents/Danilo-Santos-Resume.pdf`: supplied English résumé, shared by both languages.
 
 ### Editing workflow
@@ -69,7 +71,7 @@ The link checker validates local assets, page destinations, matching fragment ID
 
 The workshop illustrates the working-approach section (`/#workshop`, `/pt/#workshop`), after the results and case studies. A human coordinator introduces an idea, delegates to three procedural robots, reviews their work, directs a fix, and approves the result over six stages. No model or texture assets are downloaded. Three.js is imported only near the viewport, and the illustrated fallback stays visible until a successful WebGL frame. Rendering is capped at 30 fps with capped pixel density and pauses offscreen or in hidden tabs. Pause/play and replay work for either renderer.
 
-The upper-left icon controls have localized accessible names and tooltips. The workshop stays in normal document flow; agents' soles meet the platform, and only their arms and heads move while working. The portrait and project diagrams have a pointer-following tilt (up to four degrees), enabled only for fine pointers with motion allowed. Earlier career roles appear in a separate, subdued block below the main timeline.
+The upper-right icon controls have localized accessible names and tooltips. The workshop stays in normal document flow; agents' soles meet the platform, and only their arms and heads move while working. The portrait and project diagrams have a pointer-following tilt (up to ten degrees), a small lift, and responsive shadows, enabled only for fine pointers with motion allowed. The portrait cutout and network background move in separate layers. Tilt strength and parallax distance are centralized in `assets/js/portfolio.js`; scrolling, resizing, pointer exit, or a motion-preference change resets the effect. Earlier career roles appear in a separate, subdued block below the main timeline.
 
 WebGL initialization or context loss switches to the animated DOM fallback. With JavaScript unavailable, the illustration remains static. Reduced-motion preferences show the completed illustration without loading WebGL until the visitor explicitly chooses play. Scene state does not use live announcements, avoiding repeated screen-reader interruptions.
 

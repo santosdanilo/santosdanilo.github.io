@@ -16,7 +16,10 @@
     </div>
   </div>
   <figure class="portrait" data-tilt>
-    <img src="{{ '/assets/images/danilo.webp' | relative_url }}" width="640" height="640" alt="{{ t.hero.portrait_alt }}" fetchpriority="high">
+    <div class="portrait-stage">
+      <div class="portrait-network" aria-hidden="true"></div>
+      <img src="{{ '/assets/images/danilo-cutout.webp' | relative_url }}" width="640" height="640" alt="{{ t.hero.portrait_alt }}" fetchpriority="high">
+    </div>
     <figcaption>{{ t.hero.portrait_caption }}</figcaption>
   </figure>
 </section>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" fill="none">
+  <defs>
+    <linearGradient id="base" x2="640" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#202735"/><stop offset=".55" stop-color="#302b43"/><stop offset="1" stop-color="#222b3b"/>
+    </linearGradient>
+    <radialGradient id="light">
+      <stop stop-color="#bd93f9" stop-opacity=".25"/><stop offset="1" stop-color="#bd93f9" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" stroke="#bd93f9" stroke-opacity=".075"/>
+    </pattern>
+  </defs>
+  <path fill="url(#base)" d="M0 0h640v640H0z"/>
+  <path fill="url(#grid)" d="M0 0h640v640H0z"/>
+  <ellipse cx="330" cy="230" rx="310" ry="300" fill="url(#light)"/>
+  <g stroke="#bd93f9" stroke-opacity=".22">
+    <circle cx="320" cy="230" r="218" stroke-dasharray="3 12"/>
+    <path d="M140 135h55l45 45h80M558 253h-75l-54 54H320M104 366v-95l60-60h70M528 95v58l-40 40h-65"/>
+  </g>
+  <g stroke="#8be9fd" stroke-opacity=".35" stroke-width="1.5">
+    <path d="M0 197h77l32-32M640 355h-54l-31-31v-43M49 0v60h53l33 33M640 484h-86l-45-45"/>
+    <path d="M0 430h64v-23M640 170h-39l-26-26" stroke-dasharray="4 6"/>
+  </g>
+  <g fill="#2b3145" stroke="#8be9fd" stroke-opacity=".5">
+    <rect x="44" y="104" width="100" height="67" rx="10"/>
+    <rect x="493" y="220" width="106" height="67" rx="10"/>
+    <rect x="57" y="329" width="96" height="78" rx="10"/>
+  </g>
+  <g font-family="Consolas,monospace" font-size="13" letter-spacing="2" fill="#bec0d0">
+    <text x="67" y="147">&lt;UI /&gt;</text>
+    <text x="530" y="261">API</text>
+    <text x="84" y="377">DATA</text>
+  </g>
+  <g fill="#8be9fd">
+    <circle cx="49" cy="60" r="3"/><circle cx="77" cy="197" r="3"/>
+    <circle cx="555" cy="324" r="3"/><circle cx="509" cy="439" r="3"/>
+  </g>
+  <g stroke="#bd93f9" stroke-opacity=".55">
+    <path d="m528 69 33 17-6 36-37 9-23-29zM528 69l27 53-60-20 66-16-43 45z"/>
+  </g>
+  <g fill="#bd93f9">
+    <circle cx="528" cy="69" r="4"/><circle cx="561" cy="86" r="3"/>
+    <circle cx="555" cy="122" r="3"/><circle cx="518" cy="131" r="3"/><circle cx="495" cy="102" r="3"/>
+  </g>
+</svg>
