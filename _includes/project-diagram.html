@@ -1,12 +1,30 @@
 <div class="system-diagram" aria-hidden="true">
-{% case project.diagram %}
-{% when 'market' %}<div class="diagram-node">{{ t.diagram_seller }}<span>↗</span></div><div class="diagram-connection"><span>⟷</span><small>{{ t.diagram_match }}</small></div><div class="diagram-node">{{ t.diagram_buyer }}<span>↙</span></div>
-{% when 'migration' %}<div class="diagram-node muted-node">{{ t.diagram_legacy }}<span>JS</span></div><div class="diagram-connection"><span>→</span><small>{{ t.diagram_continuity }}</small></div><div class="diagram-node">{{ t.diagram_modern }}<span>TS</span></div>
-{% when 'performance' %}
+  {% case project.diagram %} {% when 'market' %}
+  <div class="diagram-node">{{ t.diagram_seller }}<span>↗</span></div>
+  <div class="diagram-connection">
+    <span>⟷</span><small>{{ t.diagram_match }}</small>
+  </div>
+  <div class="diagram-node">{{ t.diagram_buyer }}<span>↙</span></div>
+  {% when 'migration' %}
+  <div class="diagram-node muted-node">
+    {{ t.diagram_legacy }}<span>JS</span>
+  </div>
+  <div class="diagram-connection">
+    <span>→</span><small>{{ t.diagram_continuity }}</small>
+  </div>
+  <div class="diagram-node">{{ t.diagram_modern }}<span>TS</span></div>
+  {% when 'performance' %}
   <div class="diagram-node">{{ t.diagram_interface }}<span>UI</span></div>
   <span class="diagram-arrow">↓</span>
   <div class="diagram-node">{{ t.diagram_api }}<span>API</span></div>
   <span class="diagram-arrow">↓</span>
   <div class="diagram-node">{{ t.diagram_database }}<span>DB</span></div>
-{% endcase %}
+  {% when 'bundle' %}
+  <div class="bundle-before"><span>2.75 MB</span><i></i></div>
+  <div class="bundle-change">−78.2%</div>
+  <div class="bundle-after"><span>598 KB</span><i></i></div>
+  <div class="bundle-chunks">
+    {{ t.diagram_entry }} → {{ t.diagram_chunks }}
+  </div>
+  {% endcase %}
 </div>

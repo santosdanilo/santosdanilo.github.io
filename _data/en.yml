@@ -37,32 +37,50 @@ proof:
       title: lower React mount time
       context: Trading page · initial mount from 59.1 ms to 1.8 ms
       anchor: work-performance
-    - value: "< 3 weeks"
-      title: from concept to working prototype
-      context: Real-time trading workflows for market validation
-      anchor: work-validation
+    - value: "−78.2%"
+      title: JavaScript entry bundle, raw bytes
+      context: Refactor · 2.75 MB to 598 KB; entry chunk only
+      anchor: work-frontend-performance
 worked: EXPERIENCE ACROSS PRODUCT TEAMS
 
 work:
   label: "01 / SELECTED RESULTS"
   title: The work behind the numbers.
-  intro: Three examples of how I approach speed, reliability, and product delivery — and the decisions I took responsibility for.
+  intro: Four examples of how I approach speed, reliability, and product delivery — and the decisions I took responsibility for.
   contribution_label: WHAT I DID
   outcome_label: THE RESULT
   visual_label: ENGINEERING SNAPSHOT
   items:
     - id: performance
       company: GasHub
-      category: FULL-STACK PERFORMANCE & ARCHITECTURE
+      category: API, REACT & BACKEND ARCHITECTURE
       title: A faster product, from interface to database.
       problem: A natural gas trading platform needed faster product listings and an architecture that could support complex business operations as it grew.
       contributions:
-        - Profiled the Products API, parallelized independent queries, and consolidated row-level security transactions.
+        - Profiled the Products API, parallelized independent queries, and consolidated row-level security transactions to reduce backend request latency.
         - Used React profiling and virtualized lists to reduce render work across five independently filtered trading blocks.
         - Introduced Drizzle on Deno, Zod validation, repositories, and Unit of Work transactions to separate business rules from data access.
-      outcome: Warm API latency fell 95.7%, to ~132 ms across 100 requests. Initial React mount time dropped from 59.1 ms to 1.8 ms. Multi-step backend operations gained atomic transactions.
+      outcome: Backend API warm latency fell 95.7%, to ~132 ms across 100 requests. Separately, frontend profiling reduced initial React mount time from 59.1 ms to 1.8 ms. Multi-step backend operations gained atomic transactions.
       tags: [React, Deno, Drizzle ORM, PostgreSQL]
       diagram: performance
+    - id: frontend-performance
+      company: GasHub
+      category: FRONTEND PERFORMANCE · GBDEV-230
+      title: Smaller entry. Faster route readiness, with trade-offs measured.
+      problem: After a frontend refactor, the team needed to verify the shipped build and route readiness across six application routes, including constrained network and CPU conditions.
+      contributions:
+        - Compared the deployed before/after build: the JavaScript entry fell from 2,746,031 to 598,272 raw bytes (−78.2%); gzip fell 75.9% and Brotli 73.8% per entry file.
+        - Ran 120 Chrome reloads across six routes, normal and Slow 4G with CPU 4×, and cold and warm cache; compared median end-to-end route-ready times.
+        - Collected post-refactor Lighthouse Performance results for all six deployed routes and reviewed build artifacts and CI evidence.
+      outcome: Under Slow 4G on cold cache, measured route readiness improved 44.37% on Contracts and 33.18% on Products available. Improvements varied by route and cache condition; the measurements include authentication and backend/API dependencies.
+      tags: [Vite, JavaScript, Chrome, Lighthouse]
+      diagram: bundle
+      notes_label: MEASUREMENT NOTES & LIMITATIONS
+      notes:
+        - The entry chunk decreased from 20 to 179 chunks; total emitted JavaScript increased 2.5% raw, 8.3% gzip, and 15.8% Brotli. Per-file compression estimates are not route-level network transfer sizes.
+        - Post-refactor Lighthouse scores were Login 96, Dashboard 74, Products 71, Contracts 90, Forward curve 64, and User settings 88. These are single post-only runs, not before/after score comparisons. Contracts exceeded Lighthouse's time limit; Forward curve CLS was 0.455.
+        - The 120-reload comparison showed regressions in some normal/cache conditions: Forward curve cold +16.38%, Products warm +16.44%, User settings cold +11.29%, and Dashboard cold +7.13%. Five runs per scenario describe observed variation, not statistical significance.
+        - Route-ready time is end-to-end: JavaScript availability does not mean authenticated data is ready. Backend latency, errors, retries, and subsequent API calls affect loading; this frontend refactor did not establish a backend fix.
     - id: modernization
       company: MyTime
       category: BUSINESS-CRITICAL MODERNIZATION
@@ -200,3 +218,6 @@ diagram_continuity: CONTINUOUS OPERATIONS
 diagram_interface: React interface
 diagram_api: Deno API
 diagram_database: PostgreSQL
+work_notes_summary: Read measurement notes
+diagram_entry: JS entry
+diagram_chunks: 179 chunks
