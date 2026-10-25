@@ -83,6 +83,15 @@ for relative in ("index.html", "pt/index.html", "404.html"):
         assert level <= previous + 1, f"Skipped heading level at {text!r} in {relative}"
         previous = level
 
+# Critical styles are embedded on the two portfolio routes; the full sheet is
+# still available through preload and a no-JavaScript stylesheet fallback.
+for relative in ("index.html", "pt/index.html"):
+    html = pages[root / relative].path.read_text()
+    assert "__CRITICAL_CSS__" not in html, f"Unbuilt critical CSS: {relative}"
+    assert "<style>" in html and ".hero" in html, f"Missing critical styles: {relative}"
+    assert 'rel="preload"' in html and 'as="style"' in html, f"Missing stylesheet preload: {relative}"
+    assert "<noscript>" in html and 'rel="stylesheet"' in html, f"Missing no-script styles: {relative}"
+
 # Language switching preserves fragments, including links to individual cases.
 assert pages[root / "index.html"].ids == pages[root / "pt/index.html"].ids, "Translated fragment IDs differ"
 count = 0

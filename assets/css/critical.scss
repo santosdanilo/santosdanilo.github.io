@@ -1,0 +1,13 @@
+---
+---
+
+@use "portfolio/base";
+@use "portfolio/navigation";
+@use "portfolio/hero";
+@use "portfolio/proof";
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

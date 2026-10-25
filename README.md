@@ -31,9 +31,10 @@ Open http://127.0.0.1:4000. English is at `/`, Brazilian Portuguese at `/pt/`.
 - `assets/css/workshop.css`: WebGL canvas, fallback, and playback controls.
 - `_includes/project-diagram.html`: conceptual project diagrams, not product screenshots.
 - `assets/css/portfolio.scss`: Jekyll/Sass entry point that imports the component styles.
+- `assets/css/critical.scss`: header, hero, and proof-strip styles; the asset build inlines its minified output on the English and Portuguese portfolio pages.
 - `_sass/portfolio/`: design tokens and base styles, navigation, hero, proof, work, approach, fallback illustration, AI direction, career, contact, and motion. Responsive rules live with their component.
 - `assets/js/portfolio.js`: progressive mobile navigation and language-anchor preservation.
-- `scripts/build-assets.mjs`: bundles/minifies browser JavaScript, combines/minifies generated CSS, preserves the workshop's lazy WebGL chunk, and strips unbundled copies from `_site`.
+- `scripts/build-assets.mjs`: bundles/minifies browser JavaScript, combines/minifies generated CSS, inlines critical above-the-fold styles, preserves the workshop's lazy WebGL chunk, and strips unbundled copies from `_site`.
 - `package.json` / `package-lock.json`: pinned esbuild build tooling; no third-party runtime requests are added.
 - `assets/images/danilo.webp`: original optimized portrait, retained as the source image.
 - `assets/images/danilo-cutout.webp`: full-size portrait cutout source. Responsive compressed WebP variants (`danilo-cutout-480.webp`, `danilo-cutout-640.webp`) serve appropriately sized hero images; no runtime image-processing service is used.
@@ -66,7 +67,7 @@ node --check assets/js/agent-webgl.js
 node --check assets/js/workshop-state.js
 ```
 
-The link checker validates local assets, page destinations, matching fragment IDs across languages, translated page language, nonempty headings and their hierarchy, structured data, and metadata in the generated output. Jekyll emits compressed Sass; `build:assets` combines/minifies CSS and bundles/minifies JavaScript before validation and deployment. Source modules remain readable under `assets/js/`. Also review desktop/mobile layouts, keyboard navigation, no-JavaScript navigation, and reduced-motion behavior after visual changes.
+The link checker validates local assets, page destinations, matching fragment IDs across languages, translated page language, nonempty headings and their hierarchy, structured data, and metadata in the generated output. Jekyll emits compressed Sass; `build:assets` inlines minified critical CSS, combines/minifies the remaining CSS, and bundles/minifies JavaScript before validation and deployment. The full stylesheet is a low-priority preload with a no-JavaScript fallback. Source modules remain readable under `assets/js/`. Also review desktop/mobile layouts, keyboard navigation, no-JavaScript navigation, and reduced-motion behavior after visual changes.
 
 ## Agent workshop
 

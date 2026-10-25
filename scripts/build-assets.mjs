@@ -37,6 +37,29 @@ const { code: css } = await transform(stylesheets.join("\n"), {
 const combinedCss = path.join(cssOutput, "site.min.css");
 await writeFile(combinedCss, css);
 
+const criticalSource = await readFile(
+  path.join(cssOutput, "critical.css"),
+  "utf8",
+);
+const { code: criticalMinified } = await transform(criticalSource, {
+  loader: "css",
+  minify: true,
+  target: "safari15",
+});
+const criticalCss = criticalMinified.replace(
+  /url\((['"]?)\.\.\/images\/([^)'\"]+)\1\)/g,
+  "url(/assets/images/$2)",
+);
+for (const page of ["index.html", "pt/index.html"]) {
+  const outputPath = path.join(output, page);
+  const html = await readFile(outputPath, "utf8");
+  const marker = "__CRITICAL_CSS__";
+  if (html.split(marker).length !== 2) {
+    throw new Error(`Expected one critical CSS placeholder in ${page}`);
+  }
+  await writeFile(outputPath, html.replace(marker, criticalCss));
+}
+
 // Replace Jekyll's unbundled copies in the deployed artifact with minified entries.
 await Promise.all(
   [
@@ -48,6 +71,7 @@ await Promise.all(
     path.join(jsOutput, "scripts.js"),
     path.join(cssOutput, "portfolio.css"),
     path.join(cssOutput, "portfolio.css.map"),
+    path.join(cssOutput, "critical.css"),
     path.join(cssOutput, "workshop.css"),
   ].map((file) => rm(file, { force: true })),
 );

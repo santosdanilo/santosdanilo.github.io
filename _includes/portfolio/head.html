@@ -33,10 +33,27 @@
     type="image/svg+xml"
     href="{{ '/assets/images/favicon.svg' | relative_url }}"
   />
+  {% unless page.error %}
+  <style>
+    __CRITICAL_CSS__
+  </style>
+  {% endunless %}
   <link
-    rel="stylesheet"
+    rel="preload"
+    as="style"
+    fetchpriority="low"
     href="{{ '/assets/css/site.min.css' | relative_url }}"
+    onload="
+      this.onload = null;
+      this.rel = 'stylesheet';
+    "
   />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/site.min.css' | relative_url }}"
+    />
+  </noscript>
   <script
     src="{{ '/assets/js/portfolio.min.js' | relative_url }}"
     defer
