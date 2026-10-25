@@ -37,9 +37,9 @@ proof:
       title: lower React mount time
       context: Trading page · initial mount from 59.1 ms to 1.8 ms
       anchor: work-performance
-    - value: "−78.2%"
-      title: JavaScript entry bundle, raw bytes
-      context: Refactor · 2.75 MB to 598 KB; entry chunk only
+    - value: "−44.4%"
+      title: wait for Contracts to be route-ready
+      context: Slow 4G · cold cache · also improved on regular network
       anchor: work-frontend-performance
 worked: EXPERIENCE ACROSS PRODUCT TEAMS
 
@@ -66,21 +66,24 @@ work:
     - id: frontend-performance
       company: GasHub
       category: FRONTEND PERFORMANCE · GBDEV-230
-      title: Smaller entry. Faster route readiness, with trade-offs measured.
+      title: Less waiting for the product to be ready.
       problem: After a frontend refactor, the team needed to verify the shipped build and route readiness across six application routes, including constrained network and CPU conditions.
       contributions:
-        - Compared the deployed before/after build: the JavaScript entry fell from 2,746,031 to 598,272 raw bytes (−78.2%); gzip fell 75.9% and Brotli 73.8% per entry file.
         - Ran 120 Chrome reloads across six routes, normal and Slow 4G with CPU 4×, and cold and warm cache; compared median end-to-end route-ready times.
+        - On Contracts under Slow 4G with cold cache, median route-ready time improved 44.37%. On regular network it improved 32.15% with cold cache and 45.78% with warm cache.
+        - Products available improved 33.18% on Slow 4G with cold cache; across routes, gains varied by network and cache condition.
+        - Compared the deployed builds: the JavaScript entry fell from 2,746,031 to 598,272 raw bytes (−78.2%); gzip fell 75.9% and Brotli 73.8% per entry file.
         - Collected post-refactor Lighthouse Performance results for all six deployed routes and reviewed build artifacts and CI evidence.
-      outcome: Under Slow 4G on cold cache, measured route readiness improved 44.37% on Contracts and 33.18% on Products available. Improvements varied by route and cache condition; the measurements include authentication and backend/API dependencies.
+      outcome: In the measured scenarios, route-ready time improved 44.37% on Contracts and 33.18% on Products available under Slow 4G with cold cache. Route readiness is a proxy for perceived waiting, includes authentication and backend/API dependencies, and varied across routes and cache conditions.
       tags: [Vite, JavaScript, Chrome, Lighthouse]
-      diagram: bundle
+      diagram: route-readiness
       notes_label: MEASUREMENT NOTES & LIMITATIONS
       notes:
         - The entry chunk decreased from 20 to 179 chunks; total emitted JavaScript increased 2.5% raw, 8.3% gzip, and 15.8% Brotli. Per-file compression estimates are not route-level network transfer sizes.
         - Post-refactor Lighthouse scores were Login 96, Dashboard 74, Products 71, Contracts 90, Forward curve 64, and User settings 88. These are single post-only runs, not before/after score comparisons. Contracts exceeded Lighthouse's time limit; Forward curve CLS was 0.455.
         - The 120-reload comparison showed regressions in some normal/cache conditions: Forward curve cold +16.38%, Products warm +16.44%, User settings cold +11.29%, and Dashboard cold +7.13%. Five runs per scenario describe observed variation, not statistical significance.
         - Route-ready time is end-to-end: JavaScript availability does not mean authenticated data is ready. Backend latency, errors, retries, and subsequent API calls affect loading; this frontend refactor did not establish a backend fix.
+        - Route-ready time indicates when the measured route was ready, not a direct user-perception study. The comparison used five runs per condition; observed results are not statistical significance or proof of uniform improvement.
     - id: modernization
       company: MyTime
       category: BUSINESS-CRITICAL MODERNIZATION
@@ -219,5 +222,8 @@ diagram_interface: React interface
 diagram_api: Deno API
 diagram_database: PostgreSQL
 work_notes_summary: Read measurement notes
-diagram_entry: JS entry
-diagram_chunks: 179 chunks
+diagram_before: BEFORE
+diagram_after: AFTER
+diagram_route: CONTRACTS · SLOW 4G · COLD CACHE
+diagram_route_reduction: −44.37%
+diagram_route_metric: MEDIAN ROUTE-READY TIME

@@ -192,48 +192,52 @@
 .project-performance .diagram-node > span {
   font-size: 15px;
 }
-.project-bundle {
-  background: radial-gradient(ellipse, #bd93f910, transparent 72%), #282734;
+.project-route-readiness {
+  background: radial-gradient(ellipse, #50fa7b0c, transparent 72%), #282d36;
 }
-.project-bundle .system-diagram {
+.project-route-readiness .system-diagram {
   flex-direction: column;
-  gap: 13px;
-  max-width: 260px;
+  align-items: stretch;
+  gap: 12px;
+  max-width: 270px;
   font: 12px var(--mono);
 }
-.bundle-before,
-.bundle-after {
+.route-diagram-label {
+  color: var(--subtle);
+  font: 8px/1.6 var(--mono);
+  letter-spacing: 0.08em;
+}
+.route-time {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  width: 100%;
-  border: 1px solid #76667f;
+  align-items: center;
+  border: 1px solid #5c5c70;
   border-radius: 7px;
-  padding: 12px 14px;
+  padding: 13px 14px;
   color: var(--muted);
   background: #303341;
 }
-.bundle-before i,
-.bundle-after i {
+.route-time i {
   display: block;
-  width: 70%;
-  height: 7px;
-  border-radius: 5px;
+  width: 76%;
+  height: 8px;
+  border-radius: 6px;
   background: #8a829b;
 }
-.bundle-after {
+.route-time-after {
   border-color: #50fa7b66;
-  color: var(--green);
+  background: #29363a;
 }
-.bundle-after i {
-  width: 22%;
+.route-time-after i {
+  width: 42%;
   background: var(--green);
 }
-.bundle-change {
+.route-improvement {
   color: var(--green);
-  font-size: 25px;
+  font-size: 22px;
 }
-.bundle-chunks {
+.route-improvement span {
+  display: block;
   color: var(--subtle);
   font-size: 9px;
 }
@@ -304,10 +308,10 @@
   .project-performance .diagram-arrow {
     font-size: 15px;
   }
-  .project-bundle {
+  .project-route-readiness {
     min-height: 255px;
   }
-  .project-bundle .system-diagram {
+  .project-route-readiness .system-diagram {
     max-width: 235px;
   }
   .system-diagram {

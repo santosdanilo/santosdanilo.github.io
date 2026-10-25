@@ -19,12 +19,16 @@
   <div class="diagram-node">{{ t.diagram_api }}<span>API</span></div>
   <span class="diagram-arrow">↓</span>
   <div class="diagram-node">{{ t.diagram_database }}<span>DB</span></div>
-  {% when 'bundle' %}
-  <div class="bundle-before"><span>2.75 MB</span><i></i></div>
-  <div class="bundle-change">−78.2%</div>
-  <div class="bundle-after"><span>598 KB</span><i></i></div>
-  <div class="bundle-chunks">
-    {{ t.diagram_entry }} → {{ t.diagram_chunks }}
+  {% when 'route-readiness' %}
+  <p class="route-diagram-label">{{ t.diagram_route }}</p>
+  <div class="route-time route-time-before">
+    <span>{{ t.diagram_before }}</span><i></i>
+  </div>
+  <div class="route-time route-time-after">
+    <span>{{ t.diagram_after }}</span><i></i>
+  </div>
+  <div class="route-improvement">
+    {{ t.diagram_route_reduction }} <span>{{ t.diagram_route_metric }}</span>
   </div>
   {% endcase %}
 </div>

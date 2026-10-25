@@ -37,9 +37,9 @@ proof:
       title: menos tempo de montagem no React
       context: Página de negociação · montagem inicial de 59,1 ms para 1,8 ms
       anchor: work-performance
-    - value: "−78,2%"
-      title: no entry bundle JavaScript, em bytes brutos
-      context: Refatoração · 2,75 MB para 598 KB; somente o entry
+    - value: "−44,4%"
+      title: de espera até a rota Contratos ficar pronta
+      context: Slow 4G · cache frio · também melhorou na rede normal
       anchor: work-frontend-performance
 worked: EXPERIÊNCIA EM EQUIPES DE PRODUTO
 
@@ -66,21 +66,24 @@ work:
     - id: frontend-performance
       company: GasHub
       category: PERFORMANCE DE FRONTEND · GBDEV-230
-      title: Entry menor. Rotas prontas mais cedo, com trade-offs medidos.
+      title: Menos espera até o produto ficar pronto.
       problem: Após uma refatoração de frontend, a equipe precisava verificar o build publicado e a prontidão das rotas em seis páginas, inclusive sob restrições de rede e CPU.
       contributions:
-        - Comparei os builds publicados antes e depois: o entry JavaScript caiu de 2.746.031 para 598.272 bytes brutos (−78,2%); gzip caiu 75,9% e Brotli 73,8% por arquivo de entry.
         - Executei 120 reloads no Chrome em seis rotas, com rede normal e Slow 4G, CPU 4× e cache frio e quente; comparei as medianas de prontidão end-to-end.
+        - Em Contratos com Slow 4G e cache frio, a mediana até a rota ficar pronta melhorou 44,37%. Na rede normal, melhorou 32,15% com cache frio e 45,78% com cache quente.
+        - Produtos disponíveis melhorou 33,18% em Slow 4G com cache frio; os ganhos variaram por rota, rede e condição de cache.
+        - Comparei os builds publicados: o entry JavaScript caiu de 2.746.031 para 598.272 bytes brutos (−78,2%); gzip caiu 75,9% e Brotli 73,8% por arquivo de entry.
         - Coletei resultados Lighthouse Performance pós-refatoração nas seis rotas publicadas e revisei artefatos do build e evidências do CI.
-      outcome: Em Slow 4G com cache frio, a prontidão medida melhorou 44,37% em Contratos e 33,18% em Produtos disponíveis. Os resultados variaram por rota e condição de cache e incluem dependências de autenticação e APIs/backend.
+      outcome: Nos cenários medidos, o tempo até a rota ficar pronta melhorou 44,37% em Contratos e 33,18% em Produtos disponíveis com Slow 4G e cache frio. A prontidão da rota é uma aproximação da espera percebida, inclui dependências de autenticação e APIs/backend e variou por rota e condição de cache.
       tags: [Vite, JavaScript, Chrome, Lighthouse]
-      diagram: bundle
+      diagram: route-readiness
       notes_label: NOTAS E LIMITAÇÕES DAS MEDIÇÕES
       notes:
         - A quantidade de chunks aumentou de 20 para 179; o total de JavaScript emitido cresceu 2,5% em bytes brutos, 8,3% em gzip e 15,8% em Brotli. A compressão estimada por arquivo não equivale ao tamanho transferido por rota.
         - Scores Lighthouse pós-refatoração: Login 96, Dashboard 74, Produtos 71, Contratos 90, Forward curve 64 e Configurações do usuário 88. São medições únicas somente após a refatoração, sem comparação equivalente de scores antes. Contratos excedeu o limite de tempo do Lighthouse; o CLS de Forward curve foi 0,455.
         - A comparação de 120 reloads registrou regressões em algumas condições normais/cache: Forward curve com cache frio +16,38%, Produtos com cache quente +16,44%, Configurações do usuário com cache frio +11,29% e Dashboard com cache frio +7,13%. Cinco execuções por cenário descrevem variações observadas, não significância estatística.
         - A prontidão da rota é end-to-end: JavaScript disponível não significa que os dados autenticados estejam prontos. Latência do backend, erros, retries e chamadas subsequentes afetam o carregamento; esta refatoração de frontend não comprova uma correção no backend.
+        - A prontidão da rota indica quando a rota medida ficou pronta; não é um estudo direto de percepção do usuário. A comparação usou cinco execuções por condição; os resultados observados não representam significância estatística nem comprovam melhora uniforme.
     - id: modernization
       company: MyTime
       category: MODERNIZAÇÃO DE SISTEMAS CRÍTICOS
@@ -219,5 +222,8 @@ diagram_interface: Interface React
 diagram_api: API Deno
 diagram_database: PostgreSQL
 work_notes_summary: Ver notas das medições
-diagram_entry: Entry JS
-diagram_chunks: 179 chunks
+diagram_before: ANTES
+diagram_after: DEPOIS
+diagram_route: CONTRATOS · SLOW 4G · CACHE FRIO
+diagram_route_reduction: −44,37%
+diagram_route_metric: MEDIANA ATÉ A ROTA FICAR PRONTA
