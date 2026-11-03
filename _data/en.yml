@@ -152,7 +152,11 @@ direction:
       text: Already part of how I deliver at GasHub — from rapid prototypes to design-to-code workflows, with human review and automated tests.
     - label: HANDS-ON EXPLORATION
       title: Retrieval and RAG
-      text: Built a personal RAG pipeline using Python, scikit-learn, and NumPy. A practical foundation for exploring retrieval-augmented applications.
+      text: Built and demonstrated a personal SEC-filings RAG application — hybrid dense, sparse, and ColBERT retrieval over indexed filings and news, with a three-stream investment-analysis agent. The recorded walkthrough shows filing-grounded answers, agent output, and the vector collection behind it.
+      video:
+        src: /assets/video/sec-filings-rag-demo.mp4
+        poster: /assets/images/sec-rag-demo-poster.webp
+        caption: "Recorded live walkthrough (126 s): grounded RAG answer, three-stream agent, and the hybrid Qdrant collection. Personal project running locally."
     - label: CONTINUING EDUCATION
       title: AI engineering foundations
       text: Completed Gen AI, RAG, and System Retrieval foundation modules in Dev Eficiente's AI Engineering specialization.

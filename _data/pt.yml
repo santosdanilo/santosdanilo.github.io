@@ -152,7 +152,11 @@ direction:
       text: Já faz parte das minhas entregas no GasHub — de protótipos rápidos a fluxos de design para código, com revisão humana e testes automatizados.
     - label: EXPLORAÇÃO PRÁTICA
       title: Retrieval e RAG
-      text: Desenvolvi um pipeline pessoal de RAG com Python, scikit-learn e NumPy. Uma base prática para explorar aplicações que combinam recuperação de informação e geração.
+      text: Desenvolvi e demonstrei ao vivo uma aplicação pessoal de RAG sobre SEC filings — recuperação híbrida densa, esparsa e ColBERT sobre filing e notícias indexados, com um agente de análise em três frentes. O vídeo gravado mostra respostas baseadas em filings, a saída do agente e a coleção vetorial por trás de tudo.
+      video:
+        src: /assets/video/sec-filings-rag-demo.mp4
+        poster: /assets/images/sec-rag-demo-poster.webp
+        caption: "Walkthrough gravado ao vivo (126 s): resposta com base em filings, agente em três frentes e a coleção híbrida do Qdrant. Projeto pessoal, rodando localmente."
     - label: FORMAÇÃO CONTÍNUA
       title: Fundamentos de engenharia de IA
       text: Concluí os módulos de Fundamentos Gen AI, RAG e System Retrieval da Especialização em Engenharia de IA da Dev Eficiente.

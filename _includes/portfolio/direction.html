@@ -10,6 +10,16 @@
         <p class="eyebrow">{{ item.label }}</p>
         <h3>{{ item.title }}</h3>
         <p>{{ item.text }}</p>
+        {% if item.video %}
+          <figure class="direction-video">
+            <div class="direction-video-frame">
+              <video controls preload="none" playsinline poster="{{ item.video.poster | relative_url }}">
+                <source src="{{ item.video.src | relative_url }}" type="video/mp4">
+              </video>
+            </div>
+            {% if item.video.caption %}<figcaption>{{ item.video.caption }}</figcaption>{% endif %}
+          </figure>
+        {% endif %}
       </article>
     {% endfor %}
   </div>

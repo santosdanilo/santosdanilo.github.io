@@ -17,10 +17,34 @@
   font-size: 21px;
   margin-top: 18px;
 }
-.direction-grid p:last-child {
+.direction-grid article > p {
   font-size: 14px;
   line-height: 1.85;
   margin-top: 16px;
+}
+.direction-grid figure.direction-video {
+  margin: 16px 0 0;
+}
+.direction-video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #20222c;
+}
+.direction-video-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.direction-video figcaption {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
 }
 .direction-closing {
   font-size: 15px;
@@ -43,7 +67,7 @@
   .direction-grid h3 {
     margin-top: 12px;
   }
-  .direction-grid p:last-child {
+  .direction-grid article > p {
     margin-top: 12px;
   }
   .direction-closing {
