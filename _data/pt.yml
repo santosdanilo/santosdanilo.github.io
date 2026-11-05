@@ -156,7 +156,7 @@ direction:
       video:
         src: /assets/video/sec-filings-rag-demo.mp4
         poster: /assets/images/sec-rag-demo-poster.webp
-        caption: "Walkthrough gravado ao vivo (169 s): resposta com base em filings transmitida em tempo real (ida e volta de ~10 s), agente em três frentes respondendo a uma pergunta em linguagem natural e um tour mais profundo pela coleção híbrida do Qdrant. Projeto pessoal, rodando localmente."
+        caption: "Walkthrough gravado ao vivo (125 s): resposta com base em filings concluída em câmera, agente em três frentes respondendo a uma pergunta em linguagem natural e um tour mais profundo pelo Qdrant mostrando payloads reais e as configurações de vetores em uso. Projeto pessoal, rodando localmente."
     - label: FORMAÇÃO CONTÍNUA
       title: Fundamentos de engenharia de IA
       text: Concluí os módulos de Fundamentos Gen AI, RAG e System Retrieval da Especialização em Engenharia de IA da Dev Eficiente.
