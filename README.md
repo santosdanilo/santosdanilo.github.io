@@ -40,7 +40,7 @@ Open http://127.0.0.1:4000. English is at `/`, Brazilian Portuguese at `/pt/`.
 - `assets/images/danilo-cutout.webp`: full-size portrait cutout source. Responsive compressed WebP variants are emitted with content-hashed filenames; no runtime image-processing service is used.
 - `assets/images/portrait-network.svg`: decorative UI/API/data network layer, emitted with a content-hashed filename as a high-priority HTML image separate from the portrait.
 - `assets/documents/Danilo-Santos-Resume.pdf`: supplied English résumé, shared by both languages.
-- `assets/video/sec-filings-rag-demo.mp4` + `assets/images/sec-rag-demo-poster.webp`: recorded live walkthrough of the personal SEC-filings RAG application (November 3, 2026), embedded in the AI direction section with `preload="none"`; the poster is the first frame of the recording. The recording and its honest limits are documented in the private brag document at `source-of-truth/evidence/sec-filings-rag/`.
+- `assets/video/sec-filings-rag-demo.mp4` + `assets/images/sec-rag-demo-poster.webp`: recorded live walkthrough of the personal SEC-filings RAG application (November 3 and November 5, 2026 cuts; the November 5, 2026 cut is deployed), embedded in the AI direction section with `preload="none"`; the poster is the opening frame of the deployed recording. The recording and its honest limits are documented in the private brag document at `source-of-truth/evidence/sec-filings-rag/`.
 
 ### Editing workflow
 

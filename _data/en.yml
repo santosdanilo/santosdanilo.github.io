@@ -156,7 +156,7 @@ direction:
       video:
         src: /assets/video/sec-filings-rag-demo.mp4
         poster: /assets/images/sec-rag-demo-poster.webp
-        caption: "Recorded live walkthrough (126 s): grounded RAG answer, three-stream agent, and the hybrid Qdrant collection. Personal project running locally."
+        caption: "Recorded live walkthrough (169 s): grounded RAG answer streaming on camera (~10 s round trip), three-stream agent answering a natural-language question, and a deeper tour of the hybrid Qdrant collection. Personal project running locally."
     - label: CONTINUING EDUCATION
       title: AI engineering foundations
       text: Completed Gen AI, RAG, and System Retrieval foundation modules in Dev Eficiente's AI Engineering specialization.
